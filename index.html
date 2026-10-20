@@ -57,6 +57,21 @@
     .photo-panel:after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(6,28,66,.52),transparent 55%); }
     .line-accent { border-left:4px solid var(--crimson); padding-left:1.2rem; }
     .inner-hero { background:linear-gradient(120deg,#071d43,#0b2f66); color:#fff; padding:5.7rem 0; position:relative; overflow:hidden; }
+    .service-detail-page .inner-hero { background-image:linear-gradient(105deg,rgba(6,28,66,.97) 0%,rgba(6,28,66,.86) 52%,rgba(6,28,66,.48) 100%),var(--service-hero-image); background-size:cover; background-position:var(--service-hero-position,center center); }
+    #business-accounting .inner-hero,#corporate-finance .inner-hero { --service-hero-image:url('assets/service-hero-0085.jpg'); --service-hero-position:center 38%; }
+    #forensic-accounting .inner-hero { --service-hero-image:url('assets/service-hero-0066.jpg'); --service-hero-position:center 38%; }
+    #taxation .inner-hero,#permanent-residence .inner-hero { --service-hero-image:url('assets/service-hero-0012.jpg'); --service-hero-position:62% center; }
+    #tax-planning .inner-hero,#payroll .inner-hero { --service-hero-image:url('assets/service-hero-0017.jpg'); --service-hero-position:58% center; }
+    #corporate-secretarial .inner-hero,#corporate-governance-risk .inner-hero { --service-hero-image:url('assets/service-hero-0097.jpg'); --service-hero-position:center 38%; }
+    #corporate-advisory .inner-hero { --service-hero-image:url('assets/service-hero-0037.jpg'); --service-hero-position:center 42%; }
+    #training .inner-hero { --service-hero-image:url('assets/service-hero-0070.jpg'); --service-hero-position:center 38%; }
+    #about .inner-hero { --service-hero-image:url('assets/service-hero-0097.jpg'); --service-hero-position:center 38%; }
+    #services .inner-hero { --service-hero-image:url('assets/service-hero-0037.jpg'); --service-hero-position:center 42%; }
+    #tax .inner-hero { --service-hero-image:url('assets/service-hero-0012.jpg'); --service-hero-position:62% center; }
+    #advisory .inner-hero { --service-hero-image:url('assets/service-hero-0037.jpg'); --service-hero-position:center 42%; }
+    #why .inner-hero { --service-hero-image:url('assets/service-hero-0070.jpg'); --service-hero-position:center 38%; }
+    #contact .inner-hero { --service-hero-image:url('assets/service-hero-0066.jpg'); --service-hero-position:center 38%; }
+    .inner-hero { background-color:#071d43; background-image:linear-gradient(105deg,rgba(6,28,66,.97) 0%,rgba(6,28,66,.86) 52%,rgba(6,28,66,.48) 100%),var(--service-hero-image,linear-gradient(120deg,#071d43,#0b2f66)); background-size:cover; background-position:var(--service-hero-position,center center); }
     .inner-hero:after { content:""; position:absolute; width:420px; height:420px; border:1px solid rgba(255,255,255,.1); border-radius:50%; right:-140px; top:-200px; }
     .inner-hero h1 { font-family:"Libre Baskerville",serif; font-size:clamp(2rem,4vw,3.4rem); line-height:1.2; max-width:800px; position:relative; z-index:1; }
     .inner-hero p { color:#d8e1ef; max-width:680px; line-height:1.75; position:relative; z-index:1; }
@@ -86,6 +101,59 @@
     .compact-brand .brand-mark { min-width:0; align-items:flex-start; color:#fff; } .compact-brand .brand-logo-image { width:250px; }
     .mobile-menu { display:none; }
     .mobile-menu.open { display:block; }
+    .nav-menu-item { position:relative; }
+    .nav-trigger { border:0; background:transparent; padding:0; cursor:pointer; }
+    .nav-trigger span { font-size:.8em; margin-left:.25rem; }
+    .mega-menu { display:grid; position:absolute; top:calc(100% + 1.35rem); left:50%; opacity:0; visibility:hidden; pointer-events:none; transform:translate(-50%,-8px); transition:opacity .24s ease,transform .24s ease,visibility 0s linear .24s; width:min(620px,calc(100vw - 3rem)); padding:2rem; background:#fff; border:1px solid #dbe0e8; border-top:4px solid var(--crimson); box-shadow:0 18px 45px rgba(6,28,66,.16); grid-template-columns:1fr 1.2fr; gap:2rem; z-index:50; }
+    .mega-menu-wide { width:min(950px,calc(100vw - 3rem)); grid-template-columns:260px 1fr; }
+    .mega-menu.open { opacity:1; visibility:visible; pointer-events:auto; transform:translate(-50%,0); transition-delay:0s; }
+    .mega-menu h2 { font-family:"Libre Baskerville",serif; color:var(--navy); font-size:1.45rem; line-height:1.3; margin:.35rem 0 .7rem; }
+    .mega-menu p { color:var(--muted); font-size:.88rem; line-height:1.6; margin:0; }
+    .mega-kicker { color:var(--crimson)!important; font-size:.68rem!important; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    .mega-links,.mega-service-links { display:grid; align-content:start; gap:.2rem; }
+    .mega-links a,.mega-service-links a { color:var(--navy); font-size:.88rem; font-weight:700; padding:.65rem .7rem; border-bottom:1px solid #edf0f4; }
+    .mega-links a:hover,.mega-service-links a:hover,.mega-links a:focus-visible,.mega-service-links a:focus-visible { color:var(--crimson); background:#f8fafc; }
+    .mega-links a span { float:right; color:var(--crimson); }
+    .mega-service-links { grid-template-columns:1fr 1fr; gap:0 .7rem; max-height:55vh; overflow:auto; }
+    .mega-service-links small { display:block; color:var(--muted); font-size:.72rem; font-weight:400; line-height:1.35; margin-top:.2rem; }
+    .mega-feature-link { display:inline-flex; color:var(--crimson)!important; font-size:.82rem!important; font-weight:700!important; margin-top:1rem; }
+    .mobile-nav-group { display:flex; flex-direction:column; gap:.45rem; }
+    .mobile-nav-group summary { cursor:pointer; color:var(--navy); font-size:.83rem; font-weight:600; list-style:none; }
+    .mobile-nav-group summary::-webkit-details-marker { display:none; }
+    .mobile-nav-group summary::after { content:"+"; float:right; color:var(--crimson); }
+    .mobile-nav-group[open] summary::after { content:"−"; }
+    .mobile-nav-group > a { padding-left:1rem; color:var(--muted); font-size:.82rem; }
+    .services-carousel-section { padding:3.5rem 0 4rem; background:#fff; border-bottom:1px solid #dbe0e8; overflow:hidden; }
+    .carousel-heading { display:flex; align-items:end; justify-content:space-between; gap:2rem; margin-bottom:1.5rem; }
+    .carousel-heading .section-title { margin-bottom:0; }
+    .carousel-controls { display:flex; gap:.5rem; flex:none; }
+    .carousel-control { width:42px; height:42px; border:1px solid #cbd3df; background:#fff; color:var(--navy); font-size:1.1rem; cursor:pointer; }
+    .carousel-control:hover,.carousel-control:focus-visible { color:#fff; background:var(--navy); border-color:var(--navy); }
+    .carousel-viewport { overflow:hidden; }
+    .carousel-track { display:flex; gap:1rem; transition:transform .45s ease; will-change:transform; }
+    .carousel-card { flex:0 0 calc((100% - 2rem)/3); min-height:190px; border:1px solid #dfe4eb; padding:1.35rem; background:#fff; box-shadow:0 8px 24px rgba(6,28,66,.04); }
+    .carousel-card:hover,.carousel-card:focus-visible { border-color:var(--crimson); box-shadow:0 12px 28px rgba(6,28,66,.1); transform:translateY(-2px); }
+    .carousel-card h3 { color:var(--navy); font-size:1rem; line-height:1.35; margin:.65rem 0 .5rem; }
+    .carousel-card p { color:var(--muted); font-size:.86rem; line-height:1.55; margin:0; }
+    @media(max-width:900px){ .desktop-nav .mega-menu { display:none!important; } .mega-menu.open { display:none!important; } }
+    @media(prefers-reduced-motion:reduce){ .mega-menu { transition:none; transform:translate(-50%,0); } }
+    @media(max-width:900px){ .carousel-card { flex-basis:calc((100% - 1rem)/2); } }
+    @media(max-width:640px){ .carousel-heading { align-items:start; flex-direction:column; gap:1rem; } .carousel-card { flex-basis:calc(100% - 1.25rem); } .carousel-track { gap:.75rem; } }
+    @media(prefers-reduced-motion:reduce){ .carousel-track { transition:none; } }
+    .services-marquee { padding:3.5rem 0 4rem; background:#fff; border-bottom:1px solid #dbe0e8; overflow:hidden; }
+    .marquee-heading { width:min(1200px,100%); margin:0 auto 1.6rem; padding:0 1.5rem; }
+    .marquee-heading .section-title { margin-bottom:0; }
+    .marquee-viewport { width:100%; overflow:hidden; }
+    .marquee-track { display:flex; width:max-content; gap:1rem; animation:services-marquee 65s linear infinite; will-change:transform; }
+    .marquee-set { display:flex; gap:1rem; flex:none; }
+    .marquee-card { position:relative; flex:0 0 285px; min-height:190px; border:1px solid #dfe4eb; padding:1.35rem; background:#fff; box-shadow:0 8px 24px rgba(6,28,66,.04); }
+    .marquee-card:hover,.marquee-card:focus-visible { border-color:var(--crimson); box-shadow:0 12px 28px rgba(6,28,66,.1); transform:translateY(-2px); }
+    .marquee-card h3 { color:var(--navy); font-family:"Libre Baskerville",serif; font-size:1rem; line-height:1.35; margin:.65rem 0 .5rem; }
+    .marquee-card p { color:var(--muted); font-size:.86rem; line-height:1.55; margin:0 1.5rem 0 0; }
+    .marquee-arrow { position:absolute; right:1.25rem; bottom:1.15rem; color:var(--crimson); font-size:1.15rem; }
+    @keyframes services-marquee { from { transform:translateX(0); } to { transform:translateX(calc(-50% - .5rem)); } }
+    @media(max-width:640px){ .marquee-heading { padding:0 1.1rem; } .marquee-card { flex-basis:260px; min-height:180px; } .marquee-track,.marquee-set { gap:.75rem; } .marquee-track { animation-duration:55s; } }
+    @media(prefers-reduced-motion:reduce){ .marquee-track { animation:none; } }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior:auto; }
       *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
@@ -106,7 +174,11 @@
     <div class="section-wrap flex items-center justify-between gap-4 py-3">
      <a href="#home" class="brand-mark" aria-label="DoublePillars Consultants home"><img class="brand-logo-image" src="assets/doublepillars-official-logo.jpeg" alt="DoublePillars Consultants — Certified Public Accountants"></a>
      <nav class="desktop-nav flex items-center gap-5" aria-label="Primary navigation">
-      <a href="#home" class="navlink">Home</a><a href="#about" class="navlink">About</a><a href="#services" class="navlink">Services</a><a href="#advisory" class="navlink">Company</a><a href="#contact" class="navlink">Contact</a>
+      <a href="#home" class="navlink">Home</a>
+      <div class="nav-menu-item"><button class="navlink nav-trigger" type="button" aria-expanded="false" aria-controls="about-menu">About <span aria-hidden="true">⌄</span></button><div class="mega-menu" id="about-menu" role="region" aria-label="About DoublePillars"><div><p class="mega-kicker">About DoublePillars</p><h2>Professional support, grounded in sound judgement.</h2><p>Learn about DoublePillars Consultants, our approach and the values that guide our work in Botswana.</p></div><div class="mega-links"><a href="#about">About the firm <span aria-hidden="true">→</span></a><a href="#why">Why DoublePillars <span aria-hidden="true">→</span></a></div></div></div>
+      <div class="nav-menu-item"><button class="navlink nav-trigger" type="button" aria-expanded="false" aria-controls="services-menu">Services <span aria-hidden="true">⌄</span></button><div class="mega-menu mega-menu-wide" id="services-menu" role="region" aria-label="Services"><div><p class="mega-kicker">Our services</p><h2>Support for the decisions that move your organisation forward.</h2><a class="mega-feature-link" href="#services">Explore all services <span aria-hidden="true">→</span></a></div><div class="mega-service-links"><a href="#service-accounting">Business Accounting <small>Financial and management accounting support.</small></a><a href="#service-forensic">Forensic Accounting &amp; Investigations <small>Forensic accounting and investigation support.</small></a><a href="#service-tax">Tax Advisory &amp; Compliance <small>Tax advisory, compliance and planning.</small></a><a href="#service-tax-planning">Tax Planning <small>Tax planning guidance for individual circumstances.</small></a><a href="#service-secretarial">Corporate Secretarial Services <small>Company secretarial and administration support.</small></a><a href="#service-advisory">Corporate Advisory Services <small>Advisory support for business decisions.</small></a><a href="#service-training">Training <small>Financial, leadership and management training.</small></a><a href="#service-governance">Corporate Governance &amp; Risk Management <small>Governance awareness and structured oversight.</small></a><a href="#service-residence">Botswana Permanent Residence Applications <small>Professional application support.</small></a><a href="#service-payroll">Payroll Services <small>Payroll processing and related support.</small></a><a href="#service-finance">Corporate Finance <small>Finance support including valuations and structuring.</small></a></div></div></div>
+      <div class="nav-menu-item"><button class="navlink nav-trigger" type="button" aria-expanded="false" aria-controls="company-menu">Company <span aria-hidden="true">⌄</span></button><div class="mega-menu" id="company-menu" role="region" aria-label="Company"><div><p class="mega-kicker">Company</p><h2>Professional services for businesses and organisations.</h2><p>Explore the firm's advisory, governance, training and corporate support capabilities.</p></div><div class="mega-links"><a href="#advisory">Advisory services <span aria-hidden="true">→</span></a><a href="#why">Our principles <span aria-hidden="true">→</span></a></div></div></div>
+      <a href="#contact" class="navlink">Contact</a>
      </nav>
      <div class="header-actions flex items-center gap-3">
       <a href="#contact" class="outline-btn" style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 16px;">Contact Us</a> <a href="#contact" class="consult-btn" style="background: rgb(183, 22, 45); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Book a Consultation</a>
@@ -114,7 +186,7 @@
     </div>
     <nav id="mobile-menu" class="mobile-menu bg-white border-t border-slate-200 px-5 py-4" aria-label="Mobile navigation">
      <div class="flex flex-col gap-4">
-      <a href="#home" class="navlink">Home</a><a href="#about" class="navlink">About</a><a href="#services" class="navlink">Services</a><a href="#advisory" class="navlink">Company</a><a href="#contact" class="navlink">Contact</a> <a href="#contact" class="consult-btn" style="background: rgb(183, 22, 45); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Book a Consultation</a>
+      <a href="#home" class="navlink">Home</a><details class="mobile-nav-group"><summary>About</summary><a href="#about">About the firm</a><a href="#why">Why DoublePillars</a></details><details class="mobile-nav-group"><summary>Services</summary><a href="#services">All services</a><a href="#service-accounting">Business Accounting</a><a href="#service-forensic">Forensic Accounting &amp; Investigations</a><a href="#service-tax">Tax Advisory &amp; Compliance</a><a href="#service-tax-planning">Tax Planning</a><a href="#service-secretarial">Corporate Secretarial Services</a><a href="#service-advisory">Corporate Advisory Services</a><a href="#service-training">Training</a><a href="#service-governance">Corporate Governance &amp; Risk Management</a><a href="#service-residence">Botswana Permanent Residence Applications</a><a href="#service-payroll">Payroll Services</a><a href="#service-finance">Corporate Finance</a></details><details class="mobile-nav-group"><summary>Company</summary><a href="#advisory">Advisory services</a><a href="#why">Our principles</a></details><a href="#contact" class="navlink">Contact</a> <a href="#contact" class="consult-btn" style="background: rgb(183, 22, 45); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Book a Consultation</a>
      </div>
     </nav>
    </header>
@@ -133,29 +205,39 @@
        </div>
       </div>
      </div>
-     <section class="service-strip bg-white" aria-label="Service highlights">
-      <div class="section-wrap service-showcase">
-       <a class="feature" href="#services">
-        <div class="feature-icon"><i data-lucide="calculator"></i>
+     <section class="services-marquee" aria-labelledby="services-marquee-title" data-services-marquee>
+      <div class="section-wrap">
+       <div class="marquee-heading"><p class="section-kicker">Our services</p><h2 id="services-marquee-title" class="section-title">Expertise for every stage of business.</h2></div>
+      </div>
+      <div class="marquee-viewport" data-marquee-viewport>
+       <div class="marquee-track" data-marquee-track>
+        <div class="marquee-set">
+         <a class="marquee-card" href="#service-accounting"><span class="service-number">01</span><h3>Business Accounting</h3><p>Financial and management accounting support for businesses and organisations.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" href="#service-forensic"><span class="service-number">02</span><h3>Forensic Accounting &amp; Investigations</h3><p>Professional forensic accounting and investigation support for relevant business matters.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" href="#service-tax"><span class="service-number">03</span><h3>Tax Advisory &amp; Compliance</h3><p>Tax advisory and compliance across corporate tax, personal tax, VAT and planning.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" href="#service-tax-planning"><span class="service-number">04</span><h3>Tax Planning</h3><p>Thoughtful tax planning guidance aligned with business and individual circumstances.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" href="#service-secretarial"><span class="service-number">05</span><h3>Corporate Secretarial Services</h3><p>Structured company secretarial support for administration and compliance needs.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" href="#service-advisory"><span class="service-number">06</span><h3>Corporate Advisory Services</h3><p>Advisory support for business decisions, process improvement and risk mitigation.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" href="#service-training"><span class="service-number">07</span><h3>Training</h3><p>Financial management, leadership, project management and accounting training.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" href="#service-governance"><span class="service-number">08</span><h3>Corporate Governance &amp; Risk Management</h3><p>Support for governance awareness, risk management and structured oversight.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" href="#service-residence"><span class="service-number">09</span><h3>Botswana Permanent Residence Applications</h3><p>Professional support relating to Botswana permanent residence applications.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" href="#service-payroll"><span class="service-number">10</span><h3>Payroll Services</h3><p>Payroll setup or processing, reports, returns and terminal-benefit calculations.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" href="#service-finance"><span class="service-number">11</span><h3>Corporate Finance</h3><p>Support may include acquisitions, capital raising, valuations and structuring.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
         </div>
-        <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;">BUSINESS ACCOUNTING</h2>
-        <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Professional accounting services designed to help businesses maintain accurate financial records and make informed decisions.</p>
-        <span class="showcase-link">Explore accounting →</span>
-       </a>
-       <a class="feature" href="#services">
-        <div class="feature-icon"><i data-lucide="file-check-2"></i>
+        <div class="marquee-set" aria-hidden="true">
+         <a class="marquee-card" tabindex="-1" href="#service-accounting"><span class="service-number">01</span><h3>Business Accounting</h3><p>Financial and management accounting support for businesses and organisations.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" tabindex="-1" href="#service-forensic"><span class="service-number">02</span><h3>Forensic Accounting &amp; Investigations</h3><p>Professional forensic accounting and investigation support for relevant business matters.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" tabindex="-1" href="#service-tax"><span class="service-number">03</span><h3>Tax Advisory &amp; Compliance</h3><p>Tax advisory and compliance across corporate tax, personal tax, VAT and planning.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" tabindex="-1" href="#service-tax-planning"><span class="service-number">04</span><h3>Tax Planning</h3><p>Thoughtful tax planning guidance aligned with business and individual circumstances.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" tabindex="-1" href="#service-secretarial"><span class="service-number">05</span><h3>Corporate Secretarial Services</h3><p>Structured company secretarial support for administration and compliance needs.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" tabindex="-1" href="#service-advisory"><span class="service-number">06</span><h3>Corporate Advisory Services</h3><p>Advisory support for business decisions, process improvement and risk mitigation.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" tabindex="-1" href="#service-training"><span class="service-number">07</span><h3>Training</h3><p>Financial management, leadership, project management and accounting training.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" tabindex="-1" href="#service-governance"><span class="service-number">08</span><h3>Corporate Governance &amp; Risk Management</h3><p>Support for governance awareness, risk management and structured oversight.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" tabindex="-1" href="#service-residence"><span class="service-number">09</span><h3>Botswana Permanent Residence Applications</h3><p>Professional support relating to Botswana permanent residence applications.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" tabindex="-1" href="#service-payroll"><span class="service-number">10</span><h3>Payroll Services</h3><p>Payroll setup or processing, reports, returns and terminal-benefit calculations.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
+         <a class="marquee-card" tabindex="-1" href="#service-finance"><span class="service-number">11</span><h3>Corporate Finance</h3><p>Support may include acquisitions, capital raising, valuations and structuring.</p><span class="marquee-arrow" aria-hidden="true">↗</span></a>
         </div>
-        <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;">TAXATION</h2>
-        <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Practical tax advisory, planning and compliance support for businesses and individuals.</p>
-        <span class="showcase-link">Explore taxation →</span>
-       </a>
-       <a class="feature" href="#services">
-        <div class="feature-icon"><i data-lucide="landmark"></i>
-        </div>
-        <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;">ADVISORY SERVICES</h2>
-        <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Professional business and corporate advisory services designed to support sustainable growth and sound decision-making.</p>
-        <span class="showcase-link">Explore advisory →</span>
-       </a>
+       </div>
       </div>
      </section>
      <section class="py-20 bg-[#f3f5f7]">
@@ -207,67 +289,67 @@
      <section class="py-20 bg-[#f3f5f7]">
       <div class="section-wrap">
        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <article class="service-card">
+        <article id="service-accounting" class="service-card">
          <div class="service-icon"><i data-lucide="calculator"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;">Business Accounting</h2>
          <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Financial and management accounting including records, transactions, bank reconciliations, management accounts, PAYE and VAT returns, annual statements, budgets and monitoring actual results against budgets. Support may be ad hoc or ongoing for companies, owner-managed businesses, trusts, partnerships, individuals and businesses in Botswana.</p><a href="#tax" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
         </article>
-        <article class="service-card">
+        <article id="service-forensic" class="service-card">
          <div class="service-icon"><i data-lucide="search-check"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;">Forensic Accounting &amp; Investigations</h2>
          <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Professional forensic accounting and investigation support for relevant business matters.</p><a href="#contact" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Discuss Your Needs →</a>
         </article>
-        <article class="service-card">
+        <article id="service-tax" class="service-card">
          <div class="service-icon"><i data-lucide="file-check-2"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;">Tax Advisory &amp; Compliance</h2>
          <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Tax advisory and compliance across corporate tax, personal tax, VAT and tax planning, with practical guidance shaped around each client’s circumstances.</p><a href="#tax" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
         </article>
-        <article class="service-card">
+        <article id="service-tax-planning" class="service-card">
          <div class="service-icon"><i data-lucide="route"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;">Tax Planning</h2>
          <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Thoughtful tax planning guidance aligned with business and individual circumstances.</p><a href="#tax" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
         </article>
-        <article class="service-card">
+        <article id="service-secretarial" class="service-card">
          <div class="service-icon"><i data-lucide="briefcase-business"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;">Corporate Secretarial Services</h2>
          <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Structured company secretarial support for organisational administration and compliance needs.</p><a href="#advisory" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
         </article>
-        <article class="service-card">
+        <article id="service-advisory" class="service-card">
          <div class="service-icon"><i data-lucide="network"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;">Corporate Advisory Services</h2>
          <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Advisory support may include transaction support, mergers and acquisitions, strategic alliances, international operations, compliance assistance, business consulting, process improvement and risk mitigation.</p><a href="#advisory" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
         </article>
-        <article class="service-card">
+        <article id="service-training" class="service-card">
          <div class="service-icon"><i data-lucide="graduation-cap"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;">Training</h2>
          <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Training may include financial management, leadership, management, project management and on-the-job accounting training. The supplied material describes courses and trainers as approved by the Botswana Qualifications Authority (BQA).</p><a href="#advisory" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
         </article>
-        <article class="service-card">
+        <article id="service-governance" class="service-card">
          <div class="service-icon"><i data-lucide="shield-check"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;">Corporate Governance &amp; Risk Management</h2>
          <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Support for governance awareness, risk management and structured oversight.</p><a href="#advisory" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
         </article>
-        <article class="service-card">
+        <article id="service-residence" class="service-card">
          <div class="service-icon"><i data-lucide="map-pin"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;">Botswana Permanent Residence Applications</h2>
          <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Professional support relating to Botswana permanent residence applications.</p><a href="#contact" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Contact Us →</a>
         </article>
-        <article class="service-card">
+        <article id="service-payroll" class="service-card">
          <div class="service-icon"><i data-lucide="wallet-cards"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;">Payroll Services</h2>
          <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Payroll setup or processing, monthly payroll and payslips, payroll reports, withholding-tax returns with BURS, assistance with withholding-tax queries, and severance or terminal-benefit calculations.</p>
         </article>
-        <article class="service-card">
+        <article id="service-finance" class="service-card">
          <div class="service-icon"><i data-lucide="chart-no-axes-combined"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;">Corporate Finance</h2>
@@ -276,6 +358,50 @@
        </div>
       </div>
      </section>
+    </section>
+    <section id="business-accounting" class="page-view service-detail-page" aria-labelledby="business-accounting-title">
+     <div class="inner-hero"><div class="section-wrap"><p class="eyebrow">Business Accounting</p><h1 id="business-accounting-title">Business Accounting</h1><p class="mt-5">Financial and management accounting including records, transactions, bank reconciliations, management accounts, PAYE and VAT returns, annual statements, budgets and monitoring actual results against budgets.</p></div></div>
+     <section class="py-20"><div class="section-wrap grid lg:grid-cols-5 gap-12 items-start"><div class="lg:col-span-3"><p class="section-kicker">Accounting support</p><h2 class="section-title">Accurate financial information for clearer decisions.</h2><p class="section-copy">Support may be ad hoc or ongoing for companies, owner-managed businesses, trusts, partnerships, individuals and businesses in Botswana.</p></div><div class="lg:col-span-2"><a href="#contact" class="consult-btn">Book a Consultation →</a><p class="mt-6"><a href="#services" class="service-link">Back to all services →</a></p></div></div></section>
+    </section>
+    <section id="forensic-accounting" class="page-view service-detail-page" aria-labelledby="forensic-accounting-title">
+     <div class="inner-hero"><div class="section-wrap"><p class="eyebrow">Forensic Accounting</p><h1 id="forensic-accounting-title">Forensic Accounting &amp; Investigations</h1><p class="mt-5">Professional forensic accounting and investigation support for relevant business matters.</p></div></div>
+     <section class="py-20"><div class="section-wrap grid lg:grid-cols-5 gap-12 items-start"><div class="lg:col-span-3"><p class="section-kicker">Investigations</p><h2 class="section-title">Structured support for relevant business matters.</h2><p class="section-copy">DoublePillars provides professional forensic accounting and investigation support for relevant business matters.</p></div><div class="lg:col-span-2"><a href="#contact" class="consult-btn">Discuss Your Needs →</a><p class="mt-6"><a href="#services" class="service-link">Back to all services →</a></p></div></div></section>
+    </section>
+    <section id="taxation" class="page-view service-detail-page" aria-labelledby="taxation-title">
+     <div class="inner-hero"><div class="section-wrap"><p class="eyebrow">Tax Advisory &amp; Compliance</p><h1 id="taxation-title">Taxation</h1><p class="mt-5">Tax advisory and compliance across corporate tax, personal tax, VAT and tax planning, with practical guidance shaped around each client’s circumstances.</p></div></div>
+     <section class="py-20"><div class="section-wrap grid lg:grid-cols-5 gap-12 items-start"><div class="lg:col-span-3"><p class="section-kicker">Tax guidance</p><h2 class="section-title">Practical guidance for tax responsibilities.</h2><p class="section-copy">Our taxation services provide professional guidance to help clients understand and meet their tax obligations.</p></div><div class="lg:col-span-2"><a href="#contact" class="consult-btn">Discuss Your Tax Needs →</a><p class="mt-6"><a href="#services" class="service-link">Back to all services →</a></p></div></div></section>
+    </section>
+    <section id="tax-planning" class="page-view service-detail-page" aria-labelledby="tax-planning-title">
+     <div class="inner-hero"><div class="section-wrap"><p class="eyebrow">Tax Planning</p><h1 id="tax-planning-title">Tax Planning</h1><p class="mt-5">Thoughtful tax planning guidance aligned with business and individual circumstances.</p></div></div>
+     <section class="py-20"><div class="section-wrap grid lg:grid-cols-5 gap-12 items-start"><div class="lg:col-span-3"><p class="section-kicker">Planning support</p><h2 class="section-title">Guidance shaped around each client’s circumstances.</h2><p class="section-copy">DoublePillars provides tax planning guidance aligned with business and individual circumstances.</p></div><div class="lg:col-span-2"><a href="#contact" class="consult-btn">Discuss Your Tax Needs →</a><p class="mt-6"><a href="#services" class="service-link">Back to all services →</a></p></div></div></section>
+    </section>
+    <section id="corporate-secretarial" class="page-view service-detail-page" aria-labelledby="corporate-secretarial-title">
+     <div class="inner-hero"><div class="section-wrap"><p class="eyebrow">Corporate Secretarial Services</p><h1 id="corporate-secretarial-title">Corporate Secretarial Services</h1><p class="mt-5">Structured company secretarial support for organisational administration and compliance needs.</p></div></div>
+     <section class="py-20"><div class="section-wrap grid lg:grid-cols-5 gap-12 items-start"><div class="lg:col-span-3"><p class="section-kicker">Corporate support</p><h2 class="section-title">Structured company secretarial support.</h2><p class="section-copy">Professional support for organisational administration and compliance needs.</p></div><div class="lg:col-span-2"><a href="#contact" class="consult-btn">Book a Consultation →</a><p class="mt-6"><a href="#services" class="service-link">Back to all services →</a></p></div></div></section>
+    </section>
+    <section id="corporate-advisory" class="page-view service-detail-page" aria-labelledby="corporate-advisory-title">
+     <div class="inner-hero"><div class="section-wrap"><p class="eyebrow">Corporate Advisory Services</p><h1 id="corporate-advisory-title">Advisory Services</h1><p class="mt-5">Advisory support may include transaction support, mergers and acquisitions, strategic alliances, international operations, compliance assistance, business consulting, process improvement and risk mitigation.</p></div></div>
+     <section class="py-20"><div class="section-wrap grid lg:grid-cols-5 gap-12 items-start"><div class="lg:col-span-3"><p class="section-kicker">Advisory support</p><h2 class="section-title">Structured counsel for business decisions.</h2><p class="section-copy">DoublePillars provides corporate and business advisory services with a serious, structured approach to organisational needs.</p></div><div class="lg:col-span-2"><a href="#contact" class="consult-btn">Speak With Our Team →</a><p class="mt-6"><a href="#services" class="service-link">Back to all services →</a></p></div></div></section>
+    </section>
+    <section id="training" class="page-view service-detail-page" aria-labelledby="training-title">
+     <div class="inner-hero"><div class="section-wrap"><p class="eyebrow">Training</p><h1 id="training-title">Training</h1><p class="mt-5">Training may include financial management, leadership, management, project management and on-the-job accounting training.</p></div></div>
+     <section class="py-20"><div class="section-wrap grid lg:grid-cols-5 gap-12 items-start"><div class="lg:col-span-3"><p class="section-kicker">Training support</p><h2 class="section-title">Professional training for business and organisational needs.</h2><p class="section-copy">The supplied material describes courses and trainers as approved by the Botswana Qualifications Authority (BQA).</p></div><div class="lg:col-span-2"><a href="#contact" class="consult-btn">Book a Consultation →</a><p class="mt-6"><a href="#services" class="service-link">Back to all services →</a></p></div></div></section>
+    </section>
+    <section id="corporate-governance-risk" class="page-view service-detail-page" aria-labelledby="corporate-governance-risk-title">
+     <div class="inner-hero"><div class="section-wrap"><p class="eyebrow">Corporate Governance &amp; Risk Management</p><h1 id="corporate-governance-risk-title">Corporate Governance &amp; Risk Management</h1><p class="mt-5">Support for governance awareness, risk management and structured oversight.</p></div></div>
+     <section class="py-20"><div class="section-wrap grid lg:grid-cols-5 gap-12 items-start"><div class="lg:col-span-3"><p class="section-kicker">Governance support</p><h2 class="section-title">Clear organisational oversight.</h2><p class="section-copy">DoublePillars provides support for governance awareness, risk management and structured oversight.</p></div><div class="lg:col-span-2"><a href="#contact" class="consult-btn">Speak With Our Team →</a><p class="mt-6"><a href="#services" class="service-link">Back to all services →</a></p></div></div></section>
+    </section>
+    <section id="permanent-residence" class="page-view service-detail-page" aria-labelledby="permanent-residence-title">
+     <div class="inner-hero"><div class="section-wrap"><p class="eyebrow">Botswana Permanent Residence Applications</p><h1 id="permanent-residence-title">Botswana Permanent Residence Applications</h1><p class="mt-5">Professional support relating to Botswana permanent residence applications.</p></div></div>
+     <section class="py-20"><div class="section-wrap grid lg:grid-cols-5 gap-12 items-start"><div class="lg:col-span-3"><p class="section-kicker">Application support</p><h2 class="section-title">Professional support for applications.</h2><p class="section-copy">DoublePillars provides professional support relating to Botswana permanent residence applications.</p></div><div class="lg:col-span-2"><a href="#contact" class="consult-btn">Contact Us →</a><p class="mt-6"><a href="#services" class="service-link">Back to all services →</a></p></div></div></section>
+    </section>
+    <section id="payroll" class="page-view service-detail-page" aria-labelledby="payroll-title">
+     <div class="inner-hero"><div class="section-wrap"><p class="eyebrow">Payroll Services</p><h1 id="payroll-title">Payroll Services</h1><p class="mt-5">Payroll setup or processing, monthly payroll and payslips, payroll reports, withholding-tax returns with BURS, assistance with withholding-tax queries, and severance or terminal-benefit calculations.</p></div></div>
+     <section class="py-20"><div class="section-wrap grid lg:grid-cols-5 gap-12 items-start"><div class="lg:col-span-3"><p class="section-kicker">Payroll support</p><h2 class="section-title">Practical payroll administration support.</h2><p class="section-copy">Payroll services include setup or processing, monthly payroll and payslips, payroll reports, withholding-tax returns with BURS, assistance with withholding-tax queries, and severance or terminal-benefit calculations.</p></div><div class="lg:col-span-2"><a href="#contact" class="consult-btn">Book a Consultation →</a><p class="mt-6"><a href="#services" class="service-link">Back to all services →</a></p></div></div></section>
+    </section>
+    <section id="corporate-finance" class="page-view service-detail-page" aria-labelledby="corporate-finance-title">
+     <div class="inner-hero"><div class="section-wrap"><p class="eyebrow">Corporate Finance</p><h1 id="corporate-finance-title">Corporate Finance</h1><p class="mt-5">Corporate finance support may include acquisitions, capital raising, valuations, and corporate structuring and reorganization.</p></div></div>
+     <section class="py-20"><div class="section-wrap grid lg:grid-cols-5 gap-12 items-start"><div class="lg:col-span-3"><p class="section-kicker">Finance support</p><h2 class="section-title">Support for corporate finance considerations.</h2><p class="section-copy">DoublePillars corporate finance support may include acquisitions, capital raising, valuations, and corporate structuring and reorganization.</p></div><div class="lg:col-span-2"><a href="#contact" class="consult-btn">Book a Consultation →</a><p class="mt-6"><a href="#services" class="service-link">Back to all services →</a></p></div></div></section>
     </section>
     <section id="tax" class="page-view" aria-labelledby="tax-title">
      <div class="inner-hero">
@@ -473,7 +599,7 @@
      </nav>
      <nav aria-label="Footer service links">
       <h2 class="footer-title" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 24px;">Services</h2>
-      <div class="flex flex-col gap-3"><a href="#tax">Business Accounting</a><a href="#tax">Taxation</a><a href="#advisory">Advisory Services</a><a href="#services">Forensic Accounting</a><a href="#advisory">Corporate Services</a>
+      <div class="flex flex-col gap-3"><a href="#business-accounting">Business Accounting</a><a href="#taxation">Taxation</a><a href="#corporate-advisory">Advisory Services</a><a href="#forensic-accounting">Forensic Accounting</a><a href="#corporate-secretarial">Corporate Services</a>
       </div>
      </nav>
      <div>
@@ -517,6 +643,46 @@
     const mobileMenu = document.getElementById('mobile-menu');
     const menuButton = document.getElementById('menu-toggle');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const navTriggers = [...document.querySelectorAll('.nav-trigger')];
+
+    function closeMegaMenus() {
+      document.querySelectorAll('.mega-menu.open').forEach((menu) => menu.classList.remove('open'));
+      navTriggers.forEach((trigger) => trigger.setAttribute('aria-expanded', 'false'));
+    }
+    function openMegaMenu(trigger) {
+      closeMegaMenus();
+      const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+      if (!menu || window.matchMedia('(max-width: 900px)').matches) return;
+      menu.classList.add('open');
+      trigger.setAttribute('aria-expanded', 'true');
+      menu.querySelector('a, button')?.focus();
+    }
+    navTriggers.forEach((trigger, triggerIndex) => {
+      trigger.addEventListener('click', () => {
+        if (trigger.getAttribute('aria-expanded') === 'true') closeMegaMenus();
+        else openMegaMenu(trigger);
+      });
+      trigger.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openMegaMenu(trigger);
+        } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+          event.preventDefault();
+          navTriggers[(triggerIndex + (event.key === 'ArrowRight' ? 1 : navTriggers.length - 1)) % navTriggers.length].focus();
+        } else if (event.key === 'Escape') closeMegaMenus();
+      });
+    });
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('.nav-menu-item')) closeMegaMenus();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && document.querySelector('.mega-menu.open')) {
+        const activeTrigger = document.querySelector('.nav-trigger[aria-expanded="true"]');
+        closeMegaMenus();
+        activeTrigger?.focus();
+      }
+    });
+    document.querySelectorAll('.mega-menu a').forEach((link) => link.addEventListener('click', closeMegaMenus));
 
     function revealOnScroll() {
       if (prefersReducedMotion) {
@@ -536,14 +702,41 @@
       revealItems.forEach((item) => observer.observe(item));
     }
 
+    const serviceRoutes = {
+      'service-accounting': 'business-accounting',
+      'service-forensic': 'forensic-accounting',
+      'service-tax': 'taxation',
+      'service-tax-planning': 'tax-planning',
+      'service-secretarial': 'corporate-secretarial',
+      'service-advisory': 'corporate-advisory',
+      'service-training': 'training',
+      'service-governance': 'corporate-governance-risk',
+      'service-residence': 'permanent-residence',
+      'service-payroll': 'payroll',
+      'service-finance': 'corporate-finance'
+    };
+    document.querySelectorAll('.service-card').forEach((card) => {
+      const route = serviceRoutes[card.id];
+      if (route) card.querySelector('.service-link')?.setAttribute('href', '#' + route);
+    });
+    document.querySelectorAll('a[href^="#service-"]').forEach((link) => {
+      const route = serviceRoutes[link.getAttribute('href').slice(1)];
+      if (route) link.setAttribute('href', '#' + route);
+    });
+
     function showRoute() {
       const route = (location.hash || '#home').slice(1);
-      const target = document.getElementById(route) || document.getElementById('home');
+      const destination = document.getElementById(serviceRoutes[route] || route);
+      const target = destination?.classList.contains('page-view') ? destination : (destination?.closest('.page-view') || document.getElementById('home'));
       pages.forEach(page => page.classList.toggle('active', page === target));
       navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + target.id));
       mobileMenu.classList.remove('open');
       menuButton.setAttribute('aria-expanded', 'false');
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      closeMegaMenus();
+      if (destination && destination !== target) {
+        window.setTimeout(() => destination.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' }), 80);
+      }
     }
     window.addEventListener('hashchange', showRoute);
     window.addEventListener('DOMContentLoaded', () => {
@@ -555,6 +748,32 @@
         menuButton.setAttribute('aria-expanded', String(open));
       });
     });
+
+    const marquee = document.querySelector('[data-services-marquee]');
+    if (marquee) {
+      const viewport = marquee.querySelector('[data-marquee-viewport]');
+      const track = marquee.querySelector('[data-marquee-track]');
+      let paused = prefersReducedMotion;
+      function pauseMarquee() {
+        paused = true;
+        track.style.animationPlayState = 'paused';
+      }
+      function resumeMarquee() {
+        if (prefersReducedMotion) return;
+        paused = false;
+        track.style.animationPlayState = 'running';
+      }
+      viewport.addEventListener('mouseenter', pauseMarquee);
+      viewport.addEventListener('mouseleave', resumeMarquee);
+      viewport.addEventListener('focusin', pauseMarquee);
+      viewport.addEventListener('focusout', (event) => {
+        if (!viewport.contains(event.relatedTarget)) resumeMarquee();
+      });
+      viewport.addEventListener('touchstart', pauseMarquee, { passive: true });
+      window.addEventListener('resize', () => {
+        if (paused || prefersReducedMotion) track.style.animationPlayState = 'paused';
+      });
+    }
 
     const form = document.getElementById('enquiry-form');
     const success = document.getElementById('form-success');
