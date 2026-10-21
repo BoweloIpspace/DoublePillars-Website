@@ -33,7 +33,7 @@ footer{background:#06172f;color:#d8e1ef}footer>div{max-width:1200px;margin:auto;
 .page-header .nav-shell{width:100%;max-width:1200px;margin:0 auto;padding:.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:nowrap}
 .page-header .brand-mark{line-height:1;display:inline-flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--navy);min-width:250px}
 .page-header .brand-logo-image{display:block;width:260px;max-width:100%;height:auto}
-.page-header .desktop-nav{display:flex;align-items:center;gap:1.25rem}
+.page-header .desktop-nav{display:flex;align-items:center;gap:1.25rem;width:auto;max-width:none;margin:0;padding:0;justify-content:flex-start;flex:0 1 auto}
 .page-header .navlink{color:var(--navy);font-size:.83rem;font-weight:600;letter-spacing:.02em;text-decoration:none;white-space:nowrap}
 .page-header .navlink:hover{color:var(--crimson)}
 .page-header .nav-menu-item{position:relative}
