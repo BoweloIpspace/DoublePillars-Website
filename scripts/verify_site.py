@@ -36,9 +36,9 @@ for name,page in pages.items():
   if not (ROOT/dest).is_file():errors.append(f'{name}: missing file {target}');continue
   if u.fragment and dest in pages and unquote(u.fragment) not in pages[dest].ids:errors.append(f'{name}: missing fragment {target}')
  if re.search(r'Back to (?:Website|all services)',norm(' '.join(page.visible)),re.I):errors.append(f'{name}: redundant return link')
- for target in re.findall(r'url\([\'\"]?([^\)\'\"]+)',page.path.read_text()):
+ for target in re.findall(r'url\([\'\"]?([^\)\'\"]+)',page.path.read_text(encoding='utf-8-sig')):
   if not urlsplit(target).scheme and not (ROOT/target).is_file():errors.append(f'{name}: missing CSS image {target}')
-manifest=json.loads((ROOT/'docs/profile-source.json').read_text());count=0
+manifest=json.loads((ROOT/'docs/profile-source.json').read_text(encoding='utf-8-sig'));count=0
 assert [p['page'] for p in manifest]==list(range(1,23))
 for source in manifest:
  page=pages[source['file']]
