@@ -31,7 +31,7 @@
     @keyframes rise { from { opacity:0; transform:translateY(9px); } to { opacity:1; transform:none; } }
     .hero { background:var(--navy); position:relative; color:#fff; }
     .hero:before { content:""; position:absolute; inset:0; background:linear-gradient(105deg,rgba(6,28,66,.98) 0%,rgba(6,28,66,.91) 50%,rgba(6,28,66,.48) 100%); z-index:1; }
-    .hero-image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
+    .hero-image { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center center; background:var(--navy); }
     .hero-inner { position:relative; z-index:2; min-height:570px; display:flex; align-items:center; padding-top:5rem; padding-bottom:5rem; }
     .eyebrow { display:flex; align-items:center; gap:.7rem; color:#d9e2ef; font-size:.73rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
     .eyebrow:before { content:""; width:35px; height:2px; background:var(--crimson); }
