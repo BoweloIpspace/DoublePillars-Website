@@ -8,7 +8,7 @@
     :root { --navy:#061c42; --navy-2:#0b2b5d; --crimson:#b7162d; --paper:#ffffff; --mist:#f3f5f7; --ink:#172033; --muted:#536076; }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
-    body { margin:0; width:100%; font-family:"Work Sans",sans-serif; color:var(--ink); background:var(--paper); }
+    body { margin:0; width:100%; font-family:"Work Sans",sans-serif; color:var(--ink); background:var(--paper); overflow-x:hidden; }
     .serif { font-family:"Libre Baskerville",serif; }
     .site-shell { width:100%; overflow:hidden; }
     .topline { height:5px; background:var(--crimson); }
@@ -76,6 +76,9 @@
     .inner-hero h1 { font-family:"Libre Baskerville",serif; font-size:clamp(2rem,4vw,3.4rem); line-height:1.2; max-width:800px; position:relative; z-index:1; }
     .inner-hero p { color:#d8e1ef; max-width:680px; line-height:1.75; position:relative; z-index:1; }
     .service-card { border:1px solid #dfe4eb; padding:1.8rem; background:rgba(255,255,255,.92); border-radius:10px; transition:transform .2s,box-shadow .2s; height:100%; box-shadow:0 8px 24px rgba(6,28,66,.04); }
+    #services .service-card { display:flex; flex-direction:column; min-width:0; }
+    #services .service-card h2 { min-width:0; }
+    #services .service-card .service-link { margin-top:auto; align-self:flex-start; }
     .service-card:hover { transform:translateY(-4px); box-shadow:0 14px 34px rgba(6,28,66,.10); }
     .service-link { color:var(--crimson); font-size:.82rem; font-weight:700; text-decoration:none; display:inline-flex; margin-top:1.2rem; }
     .list-tick li { display:flex; gap:.75rem; color:var(--muted); line-height:1.55; margin-bottom:.85rem; }
@@ -163,6 +166,8 @@
     @media(min-width:901px){ .menu-button,.mobile-menu { display:none!important; } }
     @media(max-width:640px){ .hero-inner { min-height:0; padding-top:4.5rem; padding-bottom:4.5rem; } .hero-title { font-size:clamp(1.8rem,8vw,2.35rem); line-height:1.22; } .hero-copy { font-size:.98rem; line-height:1.65; } .section-wrap { padding:0 1.1rem; } .inner-hero { padding:4rem 0; } .inner-hero h1 { font-size:clamp(1.8rem,8vw,2.35rem)!important; } .brand-mark { min-width:0; max-width:calc(100% - 56px); flex:0 1 auto; } .brand-logo-image { width:min(260px,100%); } header .menu-button { width:40px; height:40px; flex:0 0 40px; align-self:center; } .feature { padding:1.8rem 0; } .photo-panel { min-height:280px; } .py-20 { padding-top:4rem!important; padding-bottom:4rem!important; } .contact-card { padding:1rem; } .contact-card a { font-size:.93rem!important; } }
     @media(max-width:380px){ .section-wrap { padding-left:.9rem; padding-right:.9rem; } .consult-btn,.outline-btn { width:100%; } }
+    @media(max-width:900px){ .mobile-menu { max-height:calc(100vh - 78px); overflow-y:auto; overscroll-behavior:contain; } .mobile-menu>div { gap:.35rem; } .mobile-menu .navlink,.mobile-nav-group summary,.mobile-nav-group>a,.mobile-menu .consult-btn { min-height:44px; display:flex; align-items:center; } .mobile-nav-group summary { justify-content:space-between; padding:.65rem 0; } .mobile-nav-group>a { padding:.65rem 1rem; line-height:1.4; } .mobile-menu .consult-btn { width:100%; } }
+    @media(max-width:640px){ .marquee-viewport { overflow-x:auto; overflow-y:hidden; padding:0 1.1rem .5rem; scrollbar-width:thin; scroll-snap-type:x proximity; } .marquee-track { animation:none; gap:.75rem; } .marquee-set[aria-hidden="true"] { display:none; } .marquee-card { flex-basis:calc(100vw - 2.2rem); min-height:190px; scroll-snap-align:start; } }
   </style>
   <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
@@ -300,49 +305,49 @@
          <div class="service-icon"><i data-lucide="calculator"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;"><a href="accounting-management.html">Business Accounting</a></h2>
-         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Financial and management accounting including records, transactions, bank reconciliations, management accounts, PAYE and VAT returns, annual statements, budgets and monitoring actual results against budgets. Support may be ad hoc or ongoing for companies, owner-managed businesses, trusts, partnerships, individuals and businesses in Botswana.</p><a href="#tax" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
+         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Financial and management accounting including records, transactions, bank reconciliations, management accounts, PAYE and VAT returns, annual statements, budgets and monitoring actual results against budgets. Support may be ad hoc or ongoing for companies, owner-managed businesses, trusts, partnerships, individuals and businesses in Botswana.</p><a href="#business-accounting" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
         </article>
         <article id="service-forensic" class="service-card">
          <div class="service-icon"><i data-lucide="search-check"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;"><a href="forensic-services.html">Forensic Accounting &amp; Investigations</a></h2>
-         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Professional forensic accounting and investigation support for relevant business matters.</p><a href="#contact" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Discuss Your Needs →</a>
+         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Professional forensic accounting and investigation support for relevant business matters.</p><a href="#forensic-accounting" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Discuss Your Needs →</a>
         </article>
         <article id="service-tax" class="service-card">
          <div class="service-icon"><i data-lucide="file-check-2"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;"><a href="tax-advisory-compliance.html">Tax Advisory &amp; Compliance</a></h2>
-         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Tax advisory and compliance across corporate tax, personal tax, VAT and tax planning, with practical guidance shaped around each client’s circumstances.</p><a href="#tax" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
+         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Tax advisory and compliance across corporate tax, personal tax, VAT and tax planning, with practical guidance shaped around each client’s circumstances.</p><a href="#taxation" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
         </article>
         <article id="service-tax-planning" class="service-card">
          <div class="service-icon"><i data-lucide="route"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;"><a href="tax-advisory-compliance.html#pdf-11-11">Tax Planning</a></h2>
-         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Thoughtful tax planning guidance aligned with business and individual circumstances.</p><a href="#tax" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
+         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Thoughtful tax planning guidance aligned with business and individual circumstances.</p><a href="#tax-planning" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
         </article>
         <article id="service-secretarial" class="service-card">
          <div class="service-icon"><i data-lucide="briefcase-business"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;"><a href="corporate-secretarial.html">Corporate Secretarial Services</a></h2>
-         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Structured company secretarial support for organisational administration and compliance needs.</p><a href="#advisory" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
+         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Structured company secretarial support for organisational administration and compliance needs.</p><a href="#corporate-secretarial" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
         </article>
         <article id="service-advisory" class="service-card">
          <div class="service-icon"><i data-lucide="network"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;"><a href="corporate-advisory.html">Corporate Advisory Services</a></h2>
-         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Advisory support may include transaction support, mergers and acquisitions, strategic alliances, international operations, compliance assistance, business consulting, process improvement and risk mitigation.</p><a href="#advisory" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
+         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Advisory support may include transaction support, mergers and acquisitions, strategic alliances, international operations, compliance assistance, business consulting, process improvement and risk mitigation.</p><a href="#corporate-advisory" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
         </article>
         <article id="service-training" class="service-card">
          <div class="service-icon"><i data-lucide="graduation-cap"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;"><a href="training.html">Training</a></h2>
-         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Training may include financial management, leadership, management, project management and on-the-job accounting training. The supplied material describes courses and trainers as approved by the Botswana Qualifications Authority (BQA).</p><a href="#advisory" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
+         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Training may include financial management, leadership, management, project management and on-the-job accounting training. The supplied material describes courses and trainers as approved by the Botswana Qualifications Authority (BQA).</p><a href="#training" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
         </article>
         <article id="service-governance" class="service-card">
          <div class="service-icon"><i data-lucide="shield-check"></i>
          </div>
          <h2 style="color: rgb(6, 28, 66); font-weight: 700; font-style: normal; font-size: 24px;"><a href="#corporate-governance-risk">Corporate Governance &amp; Risk Management</a></h2>
-         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Support for governance awareness, risk management and structured oversight.</p><a href="#advisory" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
+         <p style="color: rgb(83, 96, 118); font-weight: 400; font-style: normal; font-size: 16px;">Support for governance awareness, risk management and structured oversight.</p><a href="#corporate-governance-risk" class="service-link" style="color: rgb(183, 22, 45); font-weight: 700; font-style: normal; font-size: 16px;">Learn More →</a>
         </article>
         <article id="service-residence" class="service-card">
          <div class="service-icon"><i data-lucide="map-pin"></i>
