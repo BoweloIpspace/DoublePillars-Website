@@ -18,6 +18,16 @@ nav>a:first-child img{display:block;width:260px;max-width:100%;height:auto}
 .page-nav details>div a{display:block;padding:.6rem .7rem;color:var(--navy);font-size:.88rem;font-weight:700;text-decoration:none;border-bottom:1px solid #edf0f4}
 .page-nav details>div a:hover{color:var(--crimson);background:#f8fafc}
 .hero{background:linear-gradient(105deg,#061c42,#0b2b5d);color:#fff;padding:5.7rem 24px;position:relative;overflow:hidden}
+.hero.has-photo{background-image:linear-gradient(105deg,rgba(6,28,66,.9),rgba(11,43,93,.78)),var(--hero-photo);background-position:center 30%;background-size:cover}
+.hero-accounting{--hero-photo:url("service-hero-0012.jpg")}
+.hero-company-profile{--hero-photo:url("service-hero-0097.jpg")}
+.hero-corporate-advisory{--hero-photo:url("service-hero-0037.jpg")}
+.hero-corporate-finance{--hero-photo:url("service-hero-0085.jpg")}
+.hero-corporate-secretarial{--hero-photo:url("service-hero-0070.jpg")}
+.hero-forensic{--hero-photo:url("service-hero-0066.jpg")}
+.hero-payroll{--hero-photo:url("service-hero-0017.jpg")}
+.hero-tax{--hero-photo:url("service-hero-tax-team.jpg")}
+.hero-training{--hero-photo:url("service-hero-training-team.jpg")}
 .hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(255,255,255,.1);border-radius:50%;right:-140px;top:-200px}
 .hero>div{max-width:1200px;margin:auto;position:relative;z-index:1}
 .hero p:first-child{color:#d9e2ef;font-size:.73rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
