@@ -1,0 +1,84 @@
+/* Shared page chrome: matches the original index.html navigation and visual language. */
+:root{--navy:#061c42;--navy-2:#0b2b5d;--crimson:#b7162d;--paper:#fff;--mist:#f3f5f7;--ink:#172033;--muted:#536076}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;width:100%;font-family:"Work Sans",sans-serif;color:var(--ink);background:var(--paper);line-height:1.7}
+header{position:sticky;top:0;z-index:40;border-top:5px solid var(--crimson);border-bottom:1px solid #dbe0e8;background:#fff;box-shadow:0 2px 10px rgba(6,28,66,.04)}
+nav{width:100%;max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:nowrap}
+nav>a:first-child{display:inline-flex;flex:0 1 auto;min-width:250px;line-height:1}
+nav>a:first-child img{display:block;width:260px;max-width:100%;height:auto}
+.page-nav{display:flex;align-items:center;justify-content:flex-end;gap:1.25rem;flex-wrap:nowrap}
+.page-nav>a,.page-nav summary{color:var(--navy);font-size:.83rem;font-weight:600;letter-spacing:.02em;text-decoration:none;white-space:nowrap;transition:color .2s ease}
+.page-nav>a:hover,.page-nav>a[aria-current=page],.page-nav summary:hover{color:var(--crimson)}
+.page-nav details{position:relative}
+.page-nav summary{cursor:pointer;list-style:none}
+.page-nav summary::-webkit-details-marker{display:none}
+.page-nav summary:after{content:"⌄";font-size:.8em;margin-left:.25rem}
+.page-nav details>div{position:absolute;top:calc(100% + 1.15rem);right:0;z-index:50;width:min(330px,80vw);padding:1rem;background:#fff;border:1px solid #dbe0e8;border-top:4px solid var(--crimson);box-shadow:0 18px 45px rgba(6,28,66,.16);max-height:65vh;overflow:auto}
+.page-nav details>div a{display:block;padding:.6rem .7rem;color:var(--navy);font-size:.88rem;font-weight:700;text-decoration:none;border-bottom:1px solid #edf0f4}
+.page-nav details>div a:hover{color:var(--crimson);background:#f8fafc}
+.hero{background:linear-gradient(105deg,#061c42,#0b2b5d);color:#fff;padding:5.7rem 24px;position:relative;overflow:hidden}
+.hero.has-photo{background-image:linear-gradient(105deg,rgba(6,28,66,.9),rgba(11,43,93,.78)),var(--hero-photo);background-position:center 30%;background-size:cover}
+.hero-accounting{--hero-photo:url("service-hero-0012.jpg")}
+.hero-company-profile{--hero-photo:url("service-hero-0097.jpg")}
+.hero-corporate-advisory{--hero-photo:url("service-hero-0037.jpg")}
+.hero-corporate-finance{--hero-photo:url("service-hero-0085.jpg")}
+.hero-corporate-secretarial{--hero-photo:url("service-hero-0070.jpg")}
+.hero-forensic{--hero-photo:url("service-hero-0066.jpg")}
+.hero-payroll{--hero-photo:url("service-hero-0017.jpg")}
+.hero-tax{--hero-photo:url("service-hero-tax-team.jpg")}
+.hero-training{--hero-photo:url("service-hero-training-team.jpg")}
+.hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(255,255,255,.1);border-radius:50%;right:-140px;top:-200px}
+.hero>div{max-width:1200px;margin:auto;position:relative;z-index:1}
+.hero p:first-child{color:#d9e2ef;font-size:.73rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+h1,h2{font-family:"Libre Baskerville",serif;line-height:1.3}h1{font-size:clamp(2rem,4vw,3.4rem);max-width:850px}
+main{max-width:1200px;margin:0 auto;padding:4.5rem 24px 5rem}main .profile-detail{max-width:950px}
+.profile-detail h2{color:var(--navy)}.profile-detail a{color:var(--crimson)}
+footer{background:#06172f;color:#d8e1ef}footer>div{max-width:1200px;margin:auto;padding:1.5rem 24px}footer a{color:#d8e1ef;font-size:.88rem}footer a:hover{color:#fff}
+@media(max-width:900px){nav{padding:12px 20px;align-items:flex-start;flex-wrap:wrap}nav>a:first-child{min-width:0;max-width:260px}.page-nav{width:100%;justify-content:flex-start;gap:1rem;flex-wrap:wrap}.page-nav details>div{position:static;width:100%;margin-top:.6rem;box-shadow:none}.hero{padding:4rem 20px}main{padding:3.5rem 20px 4rem}}
+@media(max-width:640px){nav>a:first-child img{width:min(260px,100%)}.page-nav{gap:.75rem}.page-nav>a,.page-nav summary{font-size:.8rem}.hero{padding:3.5rem 18px}.hero h1{font-size:clamp(1.8rem,8vw,2.35rem)}main{padding:3rem 18px 3.5rem}}
+
+/* The standalone pages use the exact homepage header structure. */
+.page-header{border-top:0;box-shadow:none}
+.page-header .nav-shell{width:100%;max-width:1200px;margin:0 auto;padding:.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:nowrap}
+.page-header .brand-mark{line-height:1;display:inline-flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--navy);min-width:250px}
+.page-header .brand-logo-image{display:block;width:260px;max-width:100%;height:auto}
+.page-header .desktop-nav{display:flex;align-items:center;gap:1.25rem;width:auto;max-width:none;margin:0;padding:0;justify-content:flex-start;flex:0 1 auto}
+/* The legacy nav>a:first-child rule was sizing the Home link like the logo. */
+.page-header .desktop-nav>a:first-child{display:inline;flex:0 0 auto;min-width:0;line-height:inherit}
+.page-header .navlink{color:var(--navy);font-size:.83rem;font-weight:600;letter-spacing:.02em;text-decoration:none;white-space:nowrap}
+.page-header .navlink:hover{color:var(--crimson)}
+.page-header .nav-menu-item{position:relative}
+.page-header .nav-trigger{border:0;background:transparent;padding:0;cursor:pointer}
+.page-header .nav-trigger span{font-size:.8em;margin-left:.25rem}
+.page-header .header-actions{display:flex;align-items:center;gap:.75rem}
+.page-header .outline-btn,.page-header .consult-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;text-decoration:none;border-radius:6px;font-weight:700;font-size:16px;padding:.78rem 1rem;white-space:nowrap}
+.page-header .outline-btn{border:1px solid currentColor;color:var(--navy)}
+.page-header .consult-btn{background:var(--crimson);color:#fff;padding:.82rem 1.05rem}
+.page-header .outline-btn:hover{color:#fff;background:var(--navy)}
+.page-header .consult-btn:hover{background:#901125}
+.page-header .mega-menu{display:grid;position:absolute;top:calc(100% + 1.35rem);left:50%;opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,-8px);transition:opacity .24s ease,transform .24s ease,visibility 0s linear .24s;width:min(620px,calc(100vw - 3rem));padding:2rem;background:#fff;border:1px solid #dbe0e8;border-top:4px solid var(--crimson);box-shadow:0 18px 45px rgba(6,28,66,.16);grid-template-columns:1fr 1.2fr;gap:2rem;z-index:50}
+.page-header .mega-menu-wide{width:min(950px,calc(100vw - 3rem));grid-template-columns:260px 1fr}
+.page-header .mega-menu.open{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0);transition-delay:0s}
+.page-header .mega-menu h2{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:1.45rem;line-height:1.3;margin:.35rem 0 .7rem}
+.page-header .mega-menu p{color:var(--muted);font-size:.88rem;line-height:1.6;margin:0}
+.page-header .mega-kicker{color:var(--crimson)!important;font-size:.68rem!important;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.page-header .mega-links,.page-header .mega-service-links{display:grid;align-content:start;gap:.2rem}
+.page-header .mega-links a,.page-header .mega-service-links a{color:var(--navy);font-size:.88rem;font-weight:700;padding:.65rem .7rem;border-bottom:1px solid #edf0f4;text-decoration:none}
+.page-header .mega-links a:hover,.page-header .mega-service-links a:hover{color:var(--crimson);background:#f8fafc}
+.page-header .mega-links a span{float:right;color:var(--crimson)}
+.page-header .mega-service-links{grid-template-columns:1fr 1fr;gap:0 .7rem;max-height:55vh;overflow:auto}
+.page-header .mega-service-links small{display:block;color:var(--muted);font-size:.72rem;font-weight:400;line-height:1.35;margin-top:.2rem}
+.page-header .mega-feature-link{display:inline-flex;color:var(--crimson)!important;font-size:.82rem!important;font-weight:700!important;margin-top:1rem}
+.page-header .mobile-menu{display:none}
+.page-header .mobile-menu.open{display:block}
+.page-header .mobile-nav-group{display:flex;flex-direction:column;gap:.45rem}
+.page-header .mobile-nav-group summary{cursor:pointer;color:var(--navy);font-size:.83rem;font-weight:600;list-style:none}
+.page-header .mobile-nav-group summary::-webkit-details-marker{display:none}
+.page-header .mobile-nav-group summary::after{content:"+";float:right;color:var(--crimson)}
+.page-header .mobile-nav-group[open] summary::after{content:"−"}
+.page-header .mobile-nav-group>a{display:block;padding:.5rem 1rem;color:var(--muted);font-size:.82rem;text-decoration:none}
+.page-header .menu-button{display:none;width:40px;height:40px;align-items:center;justify-content:center;padding:.5rem;color:var(--navy);border:1px solid #cbd3df;background:#fff;cursor:pointer}
+@media(max-width:900px){.page-header .desktop-nav,.page-header .header-actions{display:none}.page-header .nav-shell{align-items:center}.page-header .menu-button{display:inline-flex}.page-header .mobile-menu{width:100%;padding:1rem 1.25rem;border-top:1px solid #dbe0e8}.page-header .mobile-menu>div{display:flex;flex-direction:column;gap:1rem}.page-header .mobile-menu .navlink{display:block}.page-header .mobile-menu .consult-btn{width:max-content}}
+@media(min-width:901px){.page-header .menu-button,.page-header .mobile-menu{display:none!important}}
+@media(max-width:640px){.page-header .nav-shell{padding:.75rem 1.1rem}.page-header .brand-mark{min-width:0;max-width:calc(100% - 56px);flex:0 1 auto}.page-header .brand-logo-image{width:min(260px,100%)}.page-header .menu-button{flex:0 0 40px}}
