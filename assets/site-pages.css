@@ -20,7 +20,6 @@ nav>a:first-child img{display:block;width:260px;max-width:100%;height:auto}
 .hero{background:linear-gradient(105deg,#061c42,#0b2b5d);color:#fff;padding:5.7rem 24px;position:relative;overflow:hidden}
 .hero.has-photo{background-image:linear-gradient(105deg,rgba(6,28,66,.9),rgba(11,43,93,.78)),var(--hero-photo);background-position:center 30%;background-size:cover}
 .hero-accounting{--hero-photo:url("service-hero-0012.jpg")}
-.hero-company-profile{--hero-photo:url("service-hero-0097.jpg")}
 .hero-corporate-advisory{--hero-photo:url("service-hero-0037.jpg")}
 .hero-corporate-finance{--hero-photo:url("service-hero-0085.jpg")}
 .hero-corporate-secretarial{--hero-photo:url("service-hero-0070.jpg")}
