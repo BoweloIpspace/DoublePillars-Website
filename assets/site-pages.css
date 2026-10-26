@@ -23,7 +23,7 @@ nav>a:first-child img{display:block;width:260px;max-width:100%;height:auto}
 .hero-corporate-advisory{--hero-photo:url("service-hero-0037.jpg")}
 .hero-corporate-finance{--hero-photo:url("service-hero-0085.jpg")}
 .hero-corporate-secretarial{--hero-photo:url("service-hero-0070.jpg")}
-.hero-forensic{--hero-photo:url("service-hero-0066.jpg")}
+.hero-forensic{--hero-photo:url("service-hero-0066.jpg");background-position:center 14%;min-height:420px}
 .hero-payroll{--hero-photo:url("service-hero-0017.jpg")}
 .hero-tax{--hero-photo:url("service-hero-tax-team.jpg")}
 .hero-training{--hero-photo:url("service-hero-training-team.jpg")}
@@ -35,7 +35,7 @@ main{max-width:1200px;margin:0 auto;padding:4.5rem 24px 5rem}main .profile-detai
 .profile-detail h2{color:var(--navy)}.profile-detail a{color:var(--crimson)}
 footer{background:#06172f;color:#d8e1ef}footer>div{max-width:1200px;margin:auto;padding:1.5rem 24px}footer a{color:#d8e1ef;font-size:.88rem}footer a:hover{color:#fff}
 @media(max-width:900px){nav{padding:12px 20px;align-items:flex-start;flex-wrap:wrap}nav>a:first-child{min-width:0;max-width:260px}.page-nav{width:100%;justify-content:flex-start;gap:1rem;flex-wrap:wrap}.page-nav details>div{position:static;width:100%;margin-top:.6rem;box-shadow:none}.hero{padding:4rem 20px}main{padding:3.5rem 20px 4rem}}
-@media(max-width:640px){nav>a:first-child img{width:min(260px,100%)}.page-nav{gap:.75rem}.page-nav>a,.page-nav summary{font-size:.8rem}.hero{padding:3.5rem 18px}.hero h1{font-size:clamp(1.8rem,8vw,2.35rem)}main{padding:3rem 18px 3.5rem}}
+@media(max-width:640px){nav>a:first-child img{width:min(260px,100%)}.page-nav{gap:.75rem}.page-nav>a,.page-nav summary{font-size:.8rem}.hero{padding:3.5rem 18px}.hero h1{font-size:clamp(1.8rem,8vw,2.35rem)}.hero-forensic{min-height:0;background-position:center 20%}main{padding:3rem 18px 3.5rem}}
 
 /* The standalone pages use the exact homepage header structure. */
 .page-header{border-top:0;box-shadow:none}
