@@ -29,12 +29,30 @@
       } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
         event.preventDefault();
         navTriggers[(triggerIndex + (event.key === 'ArrowRight' ? 1 : navTriggers.length - 1)) % navTriggers.length].focus();
-      } else if (event.key === 'Escape') closeMegaMenus();
+      } else if (event.key === 'Escape') {
+        closeMegaMenus();
+        trigger.focus();
+      }
     });
   });
 
   document.addEventListener('click', (event) => {
     if (!event.target.closest('.nav-menu-item')) closeMegaMenus();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    if (mobileMenu?.classList.contains('open')) {
+      mobileMenu.classList.remove('open');
+      menuButton?.setAttribute('aria-expanded', 'false');
+      menuButton?.setAttribute('aria-label', 'Open menu');
+      menuButton?.focus();
+      return;
+    }
+    const activeTrigger = document.querySelector('.nav-trigger[aria-expanded="true"]');
+    if (activeTrigger) {
+      closeMegaMenus();
+      activeTrigger.focus();
+    }
   });
   document.querySelectorAll('.mega-menu a').forEach((link) => link.addEventListener('click', closeMegaMenus));
 
