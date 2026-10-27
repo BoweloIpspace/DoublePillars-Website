@@ -88,3 +88,28 @@ footer{background:#06172f;color:#d8e1ef}footer>div{max-width:1200px;margin:auto;
 @media(max-width:900px){.page-header .mobile-menu{max-height:calc(100vh - 75px);overflow-y:auto;overscroll-behavior:contain}.page-header .mobile-menu>div{gap:.35rem}.page-header .mobile-menu .navlink,.page-header .mobile-nav-group summary,.page-header .mobile-nav-group>a,.page-header .mobile-menu .consult-btn{min-height:44px;display:flex;align-items:center}.page-header .mobile-nav-group summary{justify-content:space-between;padding:.65rem 0}.page-header .mobile-nav-group>a{padding:.65rem 1rem;line-height:1.4}.page-header .mobile-menu .consult-btn{width:100%}}
 @media(min-width:901px){.page-header .menu-button,.page-header .mobile-menu{display:none!important}}
 @media(max-width:640px){.page-header .nav-shell{padding:.75rem 1.1rem}.page-header .brand-mark{min-width:0;max-width:calc(100% - 56px);flex:0 1 auto}.page-header .brand-logo-image{width:min(260px,100%)}.page-header .menu-button{flex:0 0 40px}}
+
+/* Responsive safeguards for the shared standalone-page chrome. */
+@media(max-width:900px){
+ .page-header .nav-shell{gap:.6rem;padding:.65rem 1rem}
+ .page-header .brand-mark{flex:1 1 0;min-width:0;max-width:none;align-items:flex-start}
+ .page-header .brand-logo-image{width:100%;max-width:220px}
+ .page-header .header-actions{display:flex!important;flex:0 0 auto;margin-left:auto}
+ .page-header .header-actions .bica-membership{min-width:84px;gap:.12rem}
+ .page-header .header-actions .bica-membership-label{font-size:.47rem}
+ .page-header .header-actions .bica-membership-logo{width:72px}
+ .page-header .header-actions .bica-membership-reg{font-size:.52rem}
+ .page-header .mobile-bica-membership{display:none}
+ .page-header .menu-button{flex:0 0 40px}
+ .page-header .mobile-menu{max-width:none;margin:0}
+}
+@media(max-width:380px){
+ .page-header .nav-shell{gap:.4rem;padding:.55rem .75rem}
+ .page-header .header-actions .bica-membership{min-width:76px}
+ .page-header .header-actions .bica-membership-label{font-size:.42rem}
+ .page-header .header-actions .bica-membership-logo{width:64px}
+ .page-header .header-actions .bica-membership-reg{font-size:.48rem}
+}
+.hero>div,.profile-detail,.service-card,.contact-card>div{min-width:0}
+.hero h1,.service-card h2,.service-card p,.profile-detail,.contact-card{overflow-wrap:anywhere}
+.service-card{min-width:0}

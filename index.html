@@ -167,6 +167,27 @@
 .profile-detail [id]{scroll-margin-top:110px}.profile-detail img{max-width:100%;height:auto}.profile-page+.profile-page{margin-top:2.5rem}
 .page-nav details{position:relative}.page-nav summary{cursor:pointer;font-weight:600;color:#061c42}.page-nav details>div{position:absolute;top:100%;right:0;z-index:10;width:min(290px,80vw);padding:16px;background:white;border:1px solid #dfe4eb;box-shadow:0 8px 24px #061c421a}.page-nav details a{display:block;padding:5px 0}.page-nav details>div{max-height:65vh;overflow:auto}@media(max-width:700px){.page-nav details[open]{flex-basis:100%}.page-nav details>div{position:static;width:100%;box-shadow:none}}
 .page-nav a[aria-current=page]{color:#b7162d}nav a:focus-visible,summary:focus-visible{outline:2px solid #b7162d;outline-offset:4px}
+ @media(max-width:900px){
+  header .section-wrap{gap:.6rem;padding-left:1rem;padding-right:1rem}
+  header .brand-mark{flex:1 1 0;min-width:0;max-width:none;align-items:flex-start}
+  header .brand-logo-image{width:100%;max-width:220px}
+  header .header-actions{display:flex!important;flex:0 0 auto;margin-left:auto}
+  header .header-actions .bica-membership{min-width:84px;gap:.12rem}
+  header .header-actions .bica-membership-label{font-size:.47rem}
+  header .header-actions .bica-membership-logo{width:72px}
+  header .header-actions .bica-membership-reg{font-size:.52rem}
+  header .mobile-bica-membership{display:none}
+  header .menu-button{flex:0 0 40px}
+ }
+ @media(max-width:380px){
+  header .section-wrap{gap:.4rem;padding-left:.75rem;padding-right:.75rem}
+  header .header-actions .bica-membership{min-width:76px}
+  header .header-actions .bica-membership-label{font-size:.42rem}
+  header .header-actions .bica-membership-logo{width:64px}
+  header .header-actions .bica-membership-reg{font-size:.48rem}
+ }
+ .service-card,.contact-card>div{min-width:0}
+ .service-card h2,.service-card p,.contact-card,.contact-card>div{overflow-wrap:anywhere}
 </style></head>
  <body style="background: rgb(255, 255, 255);">
   <div class="site-shell">
