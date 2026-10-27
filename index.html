@@ -18,6 +18,11 @@
     .brand-double { font-weight:700; font-size:1.75rem; letter-spacing:-.075em; color:var(--crimson); white-space:nowrap; }
     .brand-consult { font-family:"Libre Baskerville",serif; font-weight:700; font-size:1.02rem; letter-spacing:.04em; color:var(--navy); margin-top:5px; white-space:nowrap; }
     .brand-sub { font-size:.58rem; color:var(--navy); font-weight:600; margin-top:5px; white-space:nowrap; }
+    .bica-membership { display:inline-flex; flex-direction:column; align-items:center; justify-content:center; gap:.16rem; min-width:112px; color:var(--navy); line-height:1; white-space:nowrap; }
+    .bica-membership-label { font-size:.52rem; font-weight:700; letter-spacing:.08em; }
+    .bica-membership-logo { display:block; width:92px; height:auto; }
+    .bica-membership-reg { color:var(--muted); font-size:.6rem; font-weight:600; }
+    .mobile-bica-membership { display:none; }
     .navlink { color:var(--navy); font-size:.83rem; font-weight:600; letter-spacing:.02em; transition:color .2s ease, transform .2s ease; }
     .navlink:hover,.navlink.active { color:var(--crimson); }
     .consult-btn, .outline-btn, .navlink, .service-card, .feature, .contact-card, .field, .photo-panel img, a, button { transition:background .2s ease,color .2s ease,transform .2s ease,box-shadow .2s ease,opacity .2s ease; }
@@ -59,21 +64,20 @@
     .photo-panel:after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(6,28,66,.52),transparent 55%); }
     .line-accent { border-left:4px solid var(--crimson); padding-left:1.2rem; }
     .inner-hero { background:linear-gradient(120deg,#071d43,#0b2f66); color:#fff; padding:5.7rem 0; position:relative; overflow:hidden; }
-    .service-detail-page .inner-hero { background-image:linear-gradient(105deg,rgba(6,28,66,.97) 0%,rgba(6,28,66,.86) 52%,rgba(6,28,66,.48) 100%),var(--service-hero-image); background-size:cover; background-position:var(--service-hero-position,center center); }
-    #business-accounting .inner-hero,#corporate-finance .inner-hero { --service-hero-image:url('assets/service-hero-0085.jpg'); --service-hero-position:center 38%; }
-    #forensic-accounting .inner-hero { --service-hero-image:url('assets/service-hero-0066.jpg'); --service-hero-position:center 16%; min-height:460px; }
-    #taxation .inner-hero,#permanent-residence .inner-hero { --service-hero-image:url('assets/service-hero-0012.jpg'); --service-hero-position:62% center; }
-    #payroll .inner-hero { --service-hero-image:url('assets/service-hero-0017.jpg'); --service-hero-position:58% center; }
-    #corporate-secretarial .inner-hero,#corporate-governance-risk .inner-hero { --service-hero-image:url('assets/service-hero-0097.jpg'); --service-hero-position:center 38%; }
-    #corporate-advisory .inner-hero { --service-hero-image:url('assets/service-hero-0037.jpg'); --service-hero-position:center 42%; }
-    #training .inner-hero { --service-hero-image:url('assets/service-hero-0070.jpg'); --service-hero-position:center 38%; }
-    #about .inner-hero { --service-hero-image:url('assets/service-hero-0097.jpg'); --service-hero-position:center 16%; min-height:460px; }
-    #services .inner-hero { --service-hero-image:url('assets/service-hero-0037.jpg'); --service-hero-position:center 42%; }
-    #tax .inner-hero { --service-hero-image:url('assets/service-hero-0012.jpg'); --service-hero-position:62% center; }
-    #advisory .inner-hero { --service-hero-image:url('assets/service-hero-0037.jpg'); --service-hero-position:center 42%; }
-    #why .inner-hero { --service-hero-image:url('assets/service-hero-0070.jpg'); --service-hero-position:center 16%; min-height:460px; }
-    #contact .inner-hero { --service-hero-image:url('assets/service-hero-0066.jpg'); --service-hero-position:center 38%; }
-    .inner-hero { background-color:#071d43; background-image:linear-gradient(105deg,rgba(6,28,66,.97) 0%,rgba(6,28,66,.86) 52%,rgba(6,28,66,.48) 100%),var(--service-hero-image,linear-gradient(120deg,#071d43,#0b2f66)); background-size:cover; background-position:var(--service-hero-position,center center); }
+    .service-detail-page .inner-hero { background-image:linear-gradient(105deg,rgba(6,28,66,.97) 0%,rgba(6,28,66,.86) 52%,rgba(6,28,66,.48) 100%); background-size:cover; background-position:center center; }
+    #business-accounting .inner-hero,#forensic-accounting .inner-hero,#taxation .inner-hero,#corporate-secretarial .inner-hero,#corporate-advisory .inner-hero,#training .inner-hero,#corporate-governance-risk .inner-hero,#payroll .inner-hero,#corporate-finance .inner-hero,#tax .inner-hero,#advisory .inner-hero { background-image:linear-gradient(105deg,rgba(6,28,66,.96) 0%,rgba(6,28,66,.84) 52%,rgba(6,28,66,.5) 100%),var(--hero-photo); background-size:cover; background-position:var(--hero-position,center); background-repeat:no-repeat; min-height:420px; }
+    #business-accounting .inner-hero { --hero-photo:url("assets/profile-hero-business-accounting.jpg"); --hero-position:center 48%; }
+    #forensic-accounting .inner-hero { --hero-photo:url("assets/profile-hero-forensic-accounting.jpg"); --hero-position:center 52%; }
+    #taxation .inner-hero,#tax .inner-hero { --hero-photo:url("assets/profile-hero-tax.jpg"); --hero-position:center 50%; }
+    #corporate-secretarial .inner-hero { --hero-photo:url("assets/profile-hero-corporate-secretarial.jpg"); --hero-position:center 42%; }
+    #corporate-advisory .inner-hero,#advisory .inner-hero { --hero-photo:url("assets/profile-hero-corporate-advisory.jpg"); --hero-position:center 52%; }
+    #training .inner-hero { --hero-photo:url("assets/profile-hero-training.jpg"); --hero-position:center 52%; }
+    #corporate-governance-risk .inner-hero { --hero-photo:url("assets/profile-hero-governance.jpg"); --hero-position:center 52%; }
+    #payroll .inner-hero { --hero-photo:url("assets/profile-hero-payroll.jpg"); --hero-position:center 52%; }
+    #corporate-finance .inner-hero { --hero-photo:url("assets/profile-hero-corporate-finance.jpg"); --hero-position:center 50%; }
+    #forensic-accounting .inner-hero,#why .inner-hero { min-height:460px; }
+    #about .inner-hero { min-height:460px; }
+    .inner-hero { background-color:#071d43; background-image:linear-gradient(120deg,#071d43,#0b2f66); background-size:cover; background-position:center center; }
     .inner-hero:after { content:""; position:absolute; width:420px; height:420px; border:1px solid rgba(255,255,255,.1); border-radius:50%; right:-140px; top:-200px; }
     .inner-hero h1 { font-family:"Libre Baskerville",serif; font-size:clamp(2rem,4vw,3.4rem); line-height:1.2; max-width:800px; position:relative; z-index:1; }
     .inner-hero p { color:#d8e1ef; max-width:680px; line-height:1.75; position:relative; z-index:1; }
@@ -148,8 +152,9 @@
       .reveal { opacity:1; transform:none; }
     }
     @media(max-width:900px){ .desktop-nav,.header-actions { display:none!important; } header .menu-button { display:inline-flex!important; } .service-showcase { grid-template-columns:1fr; } .feature { border-right:0; border-bottom:1px solid #dbe0e8; } .feature:last-child { border-bottom:0; } .section-wrap { max-width:760px; } }
+    @media(max-width:900px){ .mobile-bica-membership { display:inline-flex; align-self:center; margin:0 auto .35rem; } }
     @media(min-width:901px){ .menu-button,.mobile-menu { display:none!important; } }
-    @media(max-width:640px){ .hero-image { object-position:30% center; } .hero-inner { min-height:0; padding-top:4.5rem; padding-bottom:4.5rem; } .hero-title { font-size:clamp(1.8rem,8vw,2.35rem); line-height:1.22; } .hero-copy { font-size:.98rem; line-height:1.65; } .section-wrap { padding:0 1.1rem; } .inner-hero { padding:4rem 0; } #about .inner-hero, #why .inner-hero, #forensic-accounting .inner-hero { min-height:0; --service-hero-position:center 20%; } .inner-hero h1 { font-size:clamp(1.8rem,8vw,2.35rem)!important; } .brand-mark { min-width:0; max-width:calc(100% - 56px); flex:0 1 auto; } .brand-logo-image { width:min(260px,100%); } header .menu-button { width:40px; height:40px; flex:0 0 40px; align-self:center; } .feature { padding:1.8rem 0; } .photo-panel { min-height:280px; } .py-20 { padding-top:4rem!important; padding-bottom:4rem!important; } .contact-card { padding:1rem; } .contact-card a { font-size:.93rem!important; } }
+    @media(max-width:640px){ .hero-image { object-position:30% center; } .hero-inner { min-height:0; padding-top:4.5rem; padding-bottom:4.5rem; } .hero-title { font-size:clamp(1.8rem,8vw,2.35rem); line-height:1.22; } .hero-copy { font-size:.98rem; line-height:1.65; } .section-wrap { padding:0 1.1rem; } .inner-hero { padding:4rem 0; } #business-accounting .inner-hero,#forensic-accounting .inner-hero,#taxation .inner-hero,#corporate-secretarial .inner-hero,#corporate-advisory .inner-hero,#training .inner-hero,#corporate-governance-risk .inner-hero,#payroll .inner-hero,#corporate-finance .inner-hero,#tax .inner-hero,#advisory .inner-hero { min-height:0; background-position:var(--hero-mobile-position,var(--hero-position,center)); } #about .inner-hero, #why .inner-hero, #forensic-accounting .inner-hero { min-height:0; } .inner-hero h1 { font-size:clamp(1.8rem,8vw,2.35rem)!important; } .brand-mark { min-width:0; max-width:calc(100% - 56px); flex:0 1 auto; } .brand-logo-image { width:min(260px,100%); } header .menu-button { width:40px; height:40px; flex:0 0 40px; align-self:center; } .feature { padding:1.8rem 0; } .photo-panel { min-height:280px; } .py-20 { padding-top:4rem!important; padding-bottom:4rem!important; } .contact-card { padding:1rem; } .contact-card a { font-size:.93rem!important; } }
     @media(max-width:380px){ .section-wrap { padding-left:.9rem; padding-right:.9rem; } .consult-btn,.outline-btn { width:100%; } }
     @media(max-width:900px){ .mobile-menu { max-height:calc(100vh - 78px); overflow-y:auto; overscroll-behavior:contain; } .mobile-menu>div { gap:.35rem; } .mobile-menu .navlink,.mobile-nav-group summary,.mobile-nav-group>a,.mobile-menu .consult-btn { min-height:44px; display:flex; align-items:center; } .mobile-nav-group summary { justify-content:space-between; padding:.65rem 0; } .mobile-nav-group>a { padding:.65rem 1rem; line-height:1.4; } .mobile-menu .consult-btn { width:100%; } }
   </style>
@@ -177,11 +182,20 @@
       <a href="#contact" class="navlink">Contact</a>
      </nav>
      <div class="header-actions flex items-center gap-3">
-      <a href="#contact" class="consult-btn" style="background: rgb(183, 22, 45); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Book a Consultation</a>
+      <div class="bica-membership" aria-label="A member firm of BICA, registration number MeFBW16028">
+       <span class="bica-membership-label">A MEMBER FIRM OF</span>
+       <img class="bica-membership-logo" src="assets/bica-membership-logo.png" alt="Botswana Institute of Chartered Accountants (BICA) logo">
+       <span class="bica-membership-reg">Reg No. MeFBW16028</span>
+      </div>
      </div><button id="menu-toggle" class="menu-button p-2 text-[#061c42] border border-slate-300" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><i data-lucide="menu"></i></button>
     </div>
     <nav id="mobile-menu" class="mobile-menu bg-white border-t border-slate-200 px-5 py-4" aria-label="Mobile navigation">
      <div class="flex flex-col gap-4">
+      <div class="bica-membership mobile-bica-membership" aria-label="A member firm of BICA, registration number MeFBW16028">
+       <span class="bica-membership-label">A MEMBER FIRM OF</span>
+       <img class="bica-membership-logo" src="assets/bica-membership-logo.png" alt="Botswana Institute of Chartered Accountants (BICA) logo">
+       <span class="bica-membership-reg">Reg No. MeFBW16028</span>
+      </div>
       <a href="#home" class="navlink">Home</a><details class="mobile-nav-group"><summary>About</summary><a href="#about">About the firm</a><a href="#why">Why Double Pillars</a></details><details class="mobile-nav-group"><summary>Services</summary><a href="#services">All services</a><a href="accounting-management.html">Business Accounting</a><a href="forensic-services.html">Forensic Accounting &amp; Investigations</a><a href="tax-advisory-compliance.html">Tax Advisory &amp; Compliance</a><a href="corporate-secretarial.html">Corporate Secretarial Services</a><a href="corporate-advisory.html">Corporate Advisory Services</a><a href="training.html">Training</a><a href="#service-governance">Corporate Governance &amp; Risk Management</a><a href="#service-residence">Botswana Permanent Residence Applications</a><a href="payroll-services.html">Payroll Services</a><a href="corporate-finance.html">Corporate Finance</a></details><details class="mobile-nav-group"><summary>Company</summary><a href="#advisory">Advisory services</a><a href="#why">Our principles</a></details><a href="#contact" class="navlink">Contact</a> <a href="#contact" class="consult-btn" style="background: rgb(183, 22, 45); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Book a Consultation</a>
      </div>
     </nav>

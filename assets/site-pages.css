@@ -18,15 +18,15 @@ nav>a:first-child img{display:block;width:260px;max-width:100%;height:auto}
 .page-nav details>div a{display:block;padding:.6rem .7rem;color:var(--navy);font-size:.88rem;font-weight:700;text-decoration:none;border-bottom:1px solid #edf0f4}
 .page-nav details>div a:hover{color:var(--crimson);background:#f8fafc}
 .hero{background:linear-gradient(105deg,#061c42,#0b2b5d);color:#fff;padding:5.7rem 24px;position:relative;overflow:hidden}
-.hero.has-photo{background-image:linear-gradient(105deg,rgba(6,28,66,.9),rgba(11,43,93,.78)),var(--hero-photo);background-position:center 30%;background-size:cover}
-.hero-accounting{--hero-photo:url("service-hero-0012.jpg")}
-.hero-corporate-advisory{--hero-photo:url("service-hero-0037.jpg")}
-.hero-corporate-finance{--hero-photo:url("service-hero-0085.jpg")}
-.hero-corporate-secretarial{--hero-photo:url("service-hero-0070.jpg")}
-.hero-forensic{--hero-photo:url("service-hero-0066.jpg");background-position:center 14%;min-height:420px}
-.hero-payroll{--hero-photo:url("service-hero-0017.jpg")}
-.hero-tax{--hero-photo:url("service-hero-tax-team.jpg")}
-.hero-training{--hero-photo:url("service-hero-training-team.jpg")}
+.hero.has-photo{background-image:linear-gradient(105deg,rgba(6,28,66,.96) 0%,rgba(6,28,66,.84) 52%,rgba(6,28,66,.5) 100%),var(--hero-photo);background-position:var(--hero-position,center);background-size:cover;background-repeat:no-repeat;min-height:360px}
+.hero-accounting{--hero-photo:url("profile-hero-business-accounting.jpg");--hero-position:center 48%}
+.hero-corporate-advisory{--hero-photo:url("profile-hero-corporate-advisory.jpg");--hero-position:center 52%}
+.hero-corporate-finance{--hero-photo:url("profile-hero-corporate-finance.jpg");--hero-position:center 52%}
+.hero-corporate-secretarial{--hero-photo:url("profile-hero-corporate-secretarial.jpg");--hero-position:center 42%}
+.hero-forensic{--hero-photo:url("profile-hero-forensic-accounting.jpg");--hero-position:center 52%;min-height:420px}
+.hero-payroll{--hero-photo:url("profile-hero-payroll.jpg");--hero-position:center 52%}
+.hero-tax{--hero-photo:url("profile-hero-tax.jpg");--hero-position:center 50%}
+.hero-training{--hero-photo:url("profile-hero-training.jpg");--hero-position:center 52%}
 .hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(255,255,255,.1);border-radius:50%;right:-140px;top:-200px}
 .hero>div{max-width:1200px;margin:auto;position:relative;z-index:1}
 .hero p:first-child{color:#d9e2ef;font-size:.73rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
@@ -35,7 +35,7 @@ main{max-width:1200px;margin:0 auto;padding:4.5rem 24px 5rem}main .profile-detai
 .profile-detail h2{color:var(--navy)}.profile-detail a{color:var(--crimson)}
 footer{background:#06172f;color:#d8e1ef}footer>div{max-width:1200px;margin:auto;padding:1.5rem 24px}footer a{color:#d8e1ef;font-size:.88rem}footer a:hover{color:#fff}
 @media(max-width:900px){nav{padding:12px 20px;align-items:flex-start;flex-wrap:wrap}nav>a:first-child{min-width:0;max-width:260px}.page-nav{width:100%;justify-content:flex-start;gap:1rem;flex-wrap:wrap}.page-nav details>div{position:static;width:100%;margin-top:.6rem;box-shadow:none}.hero{padding:4rem 20px}main{padding:3.5rem 20px 4rem}}
-@media(max-width:640px){nav>a:first-child img{width:min(260px,100%)}.page-nav{gap:.75rem}.page-nav>a,.page-nav summary{font-size:.8rem}.hero{padding:3.5rem 18px}.hero h1{font-size:clamp(1.8rem,8vw,2.35rem)}.hero-forensic{min-height:0;background-position:center 20%}main{padding:3rem 18px 3.5rem}}
+@media(max-width:640px){nav>a:first-child img{width:min(260px,100%)}.page-nav{gap:.75rem}.page-nav>a,.page-nav summary{font-size:.8rem}.hero{padding:3.5rem 18px}.hero.has-photo{min-height:0;background-position:var(--hero-mobile-position,var(--hero-position,center))}.hero h1{font-size:clamp(1.8rem,8vw,2.35rem)}.hero-forensic{min-height:0}main{padding:3rem 18px 3.5rem}}
 
 /* The standalone pages use the exact homepage header structure. */
 .page-header{border-top:0;box-shadow:none}
@@ -51,6 +51,11 @@ footer{background:#06172f;color:#d8e1ef}footer>div{max-width:1200px;margin:auto;
 .page-header .nav-trigger{border:0;background:transparent;padding:0;cursor:pointer}
 .page-header .nav-trigger span{font-size:.8em;margin-left:.25rem}
 .page-header .header-actions{display:flex;align-items:center;gap:.75rem}
+.page-header .bica-membership{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:.16rem;min-width:112px;color:var(--navy);line-height:1;white-space:nowrap}
+.page-header .bica-membership-label{font-size:.52rem;font-weight:700;letter-spacing:.08em}
+.page-header .bica-membership-logo{display:block;width:92px;height:auto}
+.page-header .bica-membership-reg{color:var(--muted);font-size:.6rem;font-weight:600}
+.page-header .mobile-bica-membership{display:none}
 .page-header .outline-btn,.page-header .consult-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;text-decoration:none;border-radius:6px;font-weight:700;font-size:16px;padding:.78rem 1rem;white-space:nowrap}
 .page-header .outline-btn{border:1px solid currentColor;color:var(--navy)}
 .page-header .consult-btn{background:var(--crimson);color:#fff;padding:.82rem 1.05rem}
@@ -79,6 +84,7 @@ footer{background:#06172f;color:#d8e1ef}footer>div{max-width:1200px;margin:auto;
 .page-header .mobile-nav-group>a{display:block;padding:.5rem 1rem;color:var(--muted);font-size:.82rem;text-decoration:none}
 .page-header .menu-button{display:none;width:40px;height:40px;align-items:center;justify-content:center;padding:.5rem;color:var(--navy);border:1px solid #cbd3df;background:#fff;cursor:pointer}
 @media(max-width:900px){.page-header .desktop-nav,.page-header .header-actions{display:none}.page-header .nav-shell{align-items:center}.page-header .menu-button{display:inline-flex}.page-header .mobile-menu{width:100%;padding:1rem 1.25rem;border-top:1px solid #dbe0e8}.page-header .mobile-menu>div{display:flex;flex-direction:column;gap:1rem}.page-header .mobile-menu .navlink{display:block}.page-header .mobile-menu .consult-btn{width:max-content}}
+@media(max-width:900px){.page-header .mobile-bica-membership{display:inline-flex;align-self:center;margin:0 auto .35rem}}
 @media(max-width:900px){.page-header .mobile-menu{max-height:calc(100vh - 75px);overflow-y:auto;overscroll-behavior:contain}.page-header .mobile-menu>div{gap:.35rem}.page-header .mobile-menu .navlink,.page-header .mobile-nav-group summary,.page-header .mobile-nav-group>a,.page-header .mobile-menu .consult-btn{min-height:44px;display:flex;align-items:center}.page-header .mobile-nav-group summary{justify-content:space-between;padding:.65rem 0}.page-header .mobile-nav-group>a{padding:.65rem 1rem;line-height:1.4}.page-header .mobile-menu .consult-btn{width:100%}}
 @media(min-width:901px){.page-header .menu-button,.page-header .mobile-menu{display:none!important}}
 @media(max-width:640px){.page-header .nav-shell{padding:.75rem 1.1rem}.page-header .brand-mark{min-width:0;max-width:calc(100% - 56px);flex:0 1 auto}.page-header .brand-logo-image{width:min(260px,100%)}.page-header .menu-button{flex:0 0 40px}}
