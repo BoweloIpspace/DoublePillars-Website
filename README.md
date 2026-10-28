@@ -66,6 +66,12 @@ The temporary canonical base is `https://doublepillars.netlify.app`. It is used 
 
 The script copies only the nine HTML pages, required assets, `sitemap.xml`, `robots.txt`, and `_headers`. It excludes the PDF, documentation, Git metadata, verification scripts, and other development files. It is not run by local verification.
 
+## Cloudflare Pages migration preparation
+
+See [`docs/cloudflare-pages-migration.md`](docs/cloudflare-pages-migration.md) for the Netlify audit, Cloudflare staging script, deployment commands, Pages Function contact-delivery plan, required account configuration, and the outstanding `.html` URL/canonical decision. The migration script creates an isolated `.cloudflare-pages` candidate from the existing `dist` output; it does not modify `dist` or the Netlify site.
+
+The approved business recipient is `doublepillars@gmail.com`; configure it as Cloudflare Pages `CONTACT_TO_EMAIL`. Keep `CONTACT_FROM_EMAIL` unchanged until a verified sending domain is available. Run `py scripts/verify-seo.py --root dist` alongside the Cloudflare build verifier before a domain cutover.
+
 ## Verification performed
 
 - Static audit: 9 HTML pages, local links/fragments, local assets, duplicate IDs, image alt text, form labels, and 17 local HTTP resources passed.
