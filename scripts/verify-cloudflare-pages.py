@@ -119,6 +119,11 @@ def main() -> int:
         default="doublepillars@gmail.com",
         help="Business recipient that must appear in every page",
     )
+    argument_parser.add_argument(
+        "--expected-developer-credit",
+        default="Developed by Bowelo Jobe",
+        help="Developer credit that must appear exactly once on every page",
+    )
     args = argument_parser.parse_args()
     root = Path(args.root).resolve()
     if not root.is_dir():
@@ -136,6 +141,7 @@ def main() -> int:
     parsers = {name: PageParser(root / name) for name in sorted(actual_pages & PAGE_NAMES) if (root / name).is_file()}
     local_reference_count = 0
     email_verified_pages = 0
+    credit_verified_pages = 0
     for page_name, parser in parsers.items():
         page = root / page_name
         page_text = page.read_text(encoding="utf-8-sig")
@@ -143,6 +149,13 @@ def main() -> int:
             errors.append(f"{page_name}: expected business email is missing")
         else:
             email_verified_pages += 1
+        credit_count = page_text.count(args.expected_developer_credit)
+        if credit_count != 1:
+            errors.append(
+                f"{page_name}: expected developer credit exactly once; found {credit_count}"
+            )
+        else:
+            credit_verified_pages += 1
         for target in parser.local_targets:
             local_reference_count += not is_external(target)
             check_target(page, root, target, parsers, errors)
@@ -172,7 +185,7 @@ def main() -> int:
     print(
         f"PASS: 9 HTML pages, {asset_count} assets, {local_reference_count} local HTTP references, "
         f"{redirect_count} redirects, business email on {email_verified_pages} pages, "
-        "fragments, CSS URLs and image alt text verified."
+        f"developer credit on {credit_verified_pages} pages, fragments, CSS URLs and image alt text verified."
     )
     return 0
 
