@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://doublepillars.netlify.app/sitemap.xml
+Sitemap: https://doublepillarsconsultants.com/sitemap.xml

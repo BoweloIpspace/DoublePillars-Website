@@ -1,4 +1,4 @@
-"""Validate the nine-page SEO metadata set without choosing a production domain."""
+"""Validate the nine-page SEO metadata set for the official domain."""
 
 from __future__ import annotations
 
@@ -67,11 +67,13 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", default="dist")
     parser.add_argument("--expected-business-email", default="doublepillars@gmail.com")
+    parser.add_argument("--expected-origin", default="https://doublepillarsconsultants.com")
     args = parser.parse_args()
     root = Path(args.root).resolve()
     errors: list[str] = []
     canonical_urls: set[str] = set()
     base_origins: set[str] = set()
+    expected_origin = args.expected_origin.rstrip("/")
 
     for page_name in sorted(PAGE_NAMES):
         page = root / page_name
@@ -93,6 +95,12 @@ def main() -> int:
             else:
                 canonical_urls.add(canonical)
                 base_origins.add(f"{parsed.scheme}://{parsed.netloc}")
+                if f"{parsed.scheme}://{parsed.netloc}" != expected_origin:
+                    errors.append(f"{page_name}: canonical origin must be {expected_origin}")
+                if parsed.netloc.lower().startswith("www."):
+                    errors.append(f"{page_name}: canonical must use the non-www official domain")
+        if "doublepillars.netlify.app" in page.read_text(encoding="utf-8-sig"):
+            errors.append(f"{page_name}: outdated Netlify URL remains")
         parsed_json = []
         for block in metadata.json_ld:
             try:
@@ -124,6 +132,8 @@ def main() -> int:
 
     robots = (root / "robots.txt").read_text(encoding="utf-8-sig") if (root / "robots.txt").is_file() else ""
     sitemap_lines = [line.split(":", 1)[1].strip() for line in robots.splitlines() if line.lower().startswith("sitemap:")]
+    if base_origins != {expected_origin}:
+        errors.append(f"canonical origins must equal {{{expected_origin}}}")
     if len(base_origins) == 1 and sitemap_lines != [next(iter(base_origins)) + "/sitemap.xml"]:
         errors.append("robots.txt sitemap does not match the canonical origin")
     if "Disallow:" not in robots:

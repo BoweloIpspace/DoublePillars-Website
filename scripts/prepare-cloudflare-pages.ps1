@@ -2,7 +2,7 @@
 param(
     [string]$SourceDirectory,
     [string]$OutputDirectory,
-    [string]$CanonicalBaseUrl,
+    [string]$CanonicalBaseUrl = 'https://doublepillarsconsultants.com',
     [switch]$UseExtensionlessUrls,
     [switch]$Clean
 )
@@ -11,6 +11,10 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
 $repositoryRoot = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
+if (-not $PSBoundParameters.ContainsKey('UseExtensionlessUrls')) {
+    # Cloudflare production uses the extensionless URL strategy by default.
+    $UseExtensionlessUrls = $true
+}
 if ([string]::IsNullOrWhiteSpace($SourceDirectory)) {
     $SourceDirectory = Join-Path $repositoryRoot 'dist'
 }
@@ -86,7 +90,10 @@ if (-not [string]::IsNullOrWhiteSpace($CanonicalBaseUrl)) {
     $canonicalUri = $null
     if (-not [Uri]::TryCreate($CanonicalBaseUrl.TrimEnd('/'), [UriKind]::Absolute, [ref]$canonicalUri) -or
         $canonicalUri.Scheme -ne 'https' -or $canonicalUri.AbsolutePath -ne '/') {
-        throw 'CanonicalBaseUrl must be an HTTPS origin such as https://www.example.com'
+        throw 'CanonicalBaseUrl must be an HTTPS origin such as https://doublepillarsconsultants.com'
+    }
+    if ($canonicalUri.Host -eq 'www.doublepillarsconsultants.com') {
+        throw 'CanonicalBaseUrl must use the non-www official domain.'
     }
     $canonical = $CanonicalBaseUrl.TrimEnd('/')
     foreach ($file in $htmlPages + @('sitemap.xml', 'robots.txt')) {
@@ -95,9 +102,9 @@ if (-not [string]::IsNullOrWhiteSpace($CanonicalBaseUrl)) {
         $contents = $contents.Replace('https://doublepillars.netlify.app', $canonical)
         Set-Content -LiteralPath $path -Value $contents -Encoding UTF8
     }
-    Write-Output "Replaced the temporary Netlify SEO base in the staging copy with: $canonical"
+    Write-Output "Applied the canonical SEO origin in the staging copy: $canonical"
 } else {
-    Write-Warning 'Canonical URLs remain unchanged at https://doublepillars.netlify.app. Choose and approve the production domain before deploying to production.'
+    Write-Warning "Canonical URLs remain unchanged because no CanonicalBaseUrl was supplied. Production should use $CanonicalBaseUrl."
 }
 
 if ($UseExtensionlessUrls) {
@@ -155,7 +162,7 @@ https://:version.:project.pages.dev/*
 $routesJson = @'
 {
   "version": 1,
-  "include": ["/api/contact"],
+  "include": ["/*"],
   "exclude": []
 }
 '@

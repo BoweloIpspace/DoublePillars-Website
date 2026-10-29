@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from html.parser import HTMLParser
@@ -22,6 +23,7 @@ PAGE_NAMES = {
     "corporate-finance.html",
 }
 ROOT_FILES = {"sitemap.xml", "robots.txt", "_headers"}
+EXPECTED_ORIGIN = "https://doublepillarsconsultants.com"
 
 
 class PageParser(HTMLParser):
@@ -145,6 +147,19 @@ def main() -> int:
     for page_name, parser in parsers.items():
         page = root / page_name
         page_text = page.read_text(encoding="utf-8-sig")
+        if "doublepillars.netlify.app" in page_text:
+            errors.append(f"{page_name}: outdated Netlify URL remains")
+        if re.search(r'<meta[^>]+name=["\']robots["\'][^>]+content=["\'][^"\']*noindex', page_text, re.IGNORECASE):
+            errors.append(f"{page_name}: production page is marked noindex")
+        canonical_match = re.search(r'<link[^>]+rel=["\']canonical["\'][^>]+href=["\']([^"\']+)', page_text, re.IGNORECASE)
+        if not canonical_match:
+            errors.append(f"{page_name}: canonical URL is missing")
+        else:
+            canonical = canonical_match.group(1)
+            if not canonical.startswith(f"{EXPECTED_ORIGIN}/") and canonical != f"{EXPECTED_ORIGIN}/":
+                errors.append(f"{page_name}: canonical must use {EXPECTED_ORIGIN}")
+            if (root / "_redirects").is_file() and page_name != "index.html" and canonical.endswith(".html"):
+                errors.append(f"{page_name}: Cloudflare canonical must be extensionless")
         if args.expected_business_email not in page_text:
             errors.append(f"{page_name}: expected business email is missing")
         else:
@@ -170,6 +185,13 @@ def main() -> int:
 
     routes_file = root / "_routes.json"
     if routes_file.is_file():
+        try:
+            routes = json.loads(routes_file.read_text(encoding="utf-8-sig"))
+        except json.JSONDecodeError as error:
+            errors.append(f"invalid _routes.json: {error.msg}")
+            routes = {}
+        if routes.get("include") != ["/*"] or routes.get("exclude") != []:
+            errors.append("_routes.json must invoke middleware on every route")
         staged_index = (root / "index.html").read_text(encoding="utf-8-sig")
         if "/api/contact" not in staged_index or "data-netlify" in staged_index or "netlify-honeypot" in staged_index:
             errors.append("staged index.html: Cloudflare contact transport is not cleanly wired")

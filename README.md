@@ -54,7 +54,7 @@ The existing navy/red design, original image files, and small footer text links 
 
 ## SEO
 
-The temporary canonical base is `https://doublepillars.netlify.app`. It is used by the page metadata, `sitemap.xml`, and `robots.txt`; replace this base when the official domain is registered.
+The official non-www canonical base is `https://doublepillarsconsultants.com`. Cloudflare production publishes extensionless canonical URLs for all nine pages and permanently redirects the legacy `.html` URLs. The `www` hostname is redirected to the non-www hostname by the Cloudflare Pages middleware.
 
 ## Netlify deployment preparation
 
@@ -66,11 +66,20 @@ The temporary canonical base is `https://doublepillars.netlify.app`. It is used 
 
 The script copies only the nine HTML pages, required assets, `sitemap.xml`, `robots.txt`, and `_headers`. It excludes the PDF, documentation, Git metadata, verification scripts, and other development files. It is not run by local verification.
 
-## Cloudflare Pages migration preparation
+## Cloudflare Pages deployment
 
-See [`docs/cloudflare-pages-migration.md`](docs/cloudflare-pages-migration.md) for the Netlify audit, Cloudflare staging script, deployment commands, Pages Function contact-delivery plan, required account configuration, and the outstanding `.html` URL/canonical decision. The migration script creates an isolated `.cloudflare-pages` candidate from the existing `dist` output; it does not modify `dist` or the Netlify site.
+See [`docs/cloudflare-pages-migration.md`](docs/cloudflare-pages-migration.md) for the Cloudflare staging script, deployment commands, Pages Function contact-delivery plan, redirect behavior, required account configuration, and Resend sender-verification steps. The migration script creates an isolated `.cloudflare-pages` candidate from `dist`; it does not modify the source publish directory while preparing the Cloudflare candidate.
 
-The approved business recipient is `doublepillars@gmail.com`; configure it as Cloudflare Pages `CONTACT_TO_EMAIL`. Keep `CONTACT_FROM_EMAIL` unchanged until a verified sending domain is available. Run `py scripts/verify-seo.py --root dist` alongside the Cloudflare build verifier before a domain cutover.
+The approved business recipient is `doublepillars@gmail.com`. Configure `ALLOWED_ORIGINS` as `https://doublepillarsconsultants.com,https://www.doublepillarsconsultants.com` and `CONTACT_TO_EMAIL=doublepillars@gmail.com` in Cloudflare Pages. Keep `CONTACT_FROM_EMAIL` unchanged until `doublepillarsconsultants.com` is verified in Resend. Never commit or replace `RESEND_API_KEY`.
+
+Prepare and verify the deployment candidate with:
+
+```powershell
+.\scripts\prepare-netlify-publish.ps1 -Clean
+.\scripts\prepare-cloudflare-pages.ps1 -Clean
+py scripts\verify-seo.py --root dist
+py scripts\verify-cloudflare-pages.py --root .cloudflare-pages
+```
 
 ## Verification performed
 
@@ -79,4 +88,4 @@ The approved business recipient is `doublepillars@gmail.com`; configure it as Cl
 - Browser checks were not performed in this environment because no controlled browser was available; no responsive-rendering claim is made here.
 - Existing image assets and image URLs were compared against the previous commit. The home page footer markup is unchanged.
 - The original PDF's SHA-256 checksum matches the attachment: `007b4587460b463deb73e2b99e913e683bac8d2dc0bcd91ff219203019ef733e`.
-- No production deployment or contact-form submission was performed.
+- No contact-form submission was performed; deployment status is reported in the task handoff.
