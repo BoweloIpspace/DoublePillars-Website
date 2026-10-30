@@ -99,7 +99,7 @@ def main() -> int:
                     errors.append(f"{page_name}: canonical origin must be {expected_origin}")
                 if parsed.netloc.lower().startswith("www."):
                     errors.append(f"{page_name}: canonical must use the non-www official domain")
-        if "doublepillars.netlify.app" in page.read_text(encoding="utf-8-sig"):
+        if re.search(r"netlify\.app", page.read_text(encoding="utf-8-sig"), re.IGNORECASE):
             errors.append(f"{page_name}: outdated Netlify URL remains")
         parsed_json = []
         for block in metadata.json_ld:

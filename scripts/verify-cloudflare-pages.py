@@ -147,7 +147,7 @@ def main() -> int:
     for page_name, parser in parsers.items():
         page = root / page_name
         page_text = page.read_text(encoding="utf-8-sig")
-        if "doublepillars.netlify.app" in page_text:
+        if re.search(r"netlify\.app", page_text, re.IGNORECASE):
             errors.append(f"{page_name}: outdated Netlify URL remains")
         if re.search(r'<meta[^>]+name=["\']robots["\'][^>]+content=["\'][^"\']*noindex', page_text, re.IGNORECASE):
             errors.append(f"{page_name}: production page is marked noindex")

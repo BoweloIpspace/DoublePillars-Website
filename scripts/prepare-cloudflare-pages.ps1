@@ -99,7 +99,12 @@ if (-not [string]::IsNullOrWhiteSpace($CanonicalBaseUrl)) {
     foreach ($file in $htmlPages + @('sitemap.xml', 'robots.txt')) {
         $path = Join-Path $outputPath $file
         $contents = Get-Content -LiteralPath $path -Raw -Encoding UTF8
-        $contents = $contents.Replace('https://doublepillars.netlify.app', $canonical)
+        $contents = [regex]::Replace(
+            $contents,
+            'https://[a-z0-9-]+\.netlify\.app',
+            $canonical,
+            [System.Text.RegularExpressions.RegexOptions]::IgnoreCase
+        )
         Set-Content -LiteralPath $path -Value $contents -Encoding UTF8
     }
     Write-Output "Applied the canonical SEO origin in the staging copy: $canonical"
